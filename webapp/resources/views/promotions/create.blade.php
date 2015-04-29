@@ -2,31 +2,43 @@
 @section('content')
 <div class="container">
 	<form method="POST" action="/promotions">
+		@if (count($errors) > 0)
+		<div class="alert alert-danger">
+			<strong>Whoops!</strong> There were some problems with your input.<br><br>
+			<ul>
+				@foreach ($errors->all() as $error)
+				<li>{{ $error }}</li>
+				@endforeach
+			</ul>
+		</div>
+		@endif
+		<input type="hidden" name="_token" value={{csrf_token()}}>
+
 		<div class="form-group">
-			<label>Title: </label><input type="text" name="title" placeholder="Promotion Title" class="form-control">
+			<label>Title: </label><input type="text" value="{{Input::old('title')}}" name="title" placeholder="Promotion Title" class="form-control">
 		</div>
 		<div class="form-group">
-			<label>Address: </label><input type="address" name="address" placeholder="Address" class="form-control">
+			<label>Address: </label><input type="address" value="{{Input::old('address')}}" name="address" placeholder="Address" class="form-control">
 		</div>
-        <div class="row">
-        	<div class="col-md-6">
+		<div class="row">
+			<div class="col-md-6">
 				<div class="form-group">
-					<p>Date: <input type="text" id="datepicker" name="date" class="form-control"></p>
+					<p>Date: <input type="text" id="datepicker" value="{{Input::old('date')}}" name="date" class="form-control"></p>
 				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="form-group">
-					<p>Time: <input type="text" id="datepicker" name="time" class="form-control"></p>
+					<p>Time: <input type="text" id="datepicker" value="{{Input::old('time')}}" name="time" class="form-control"></p>
 				</div>
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label>Price:</label></label><input placeholder="$0.00" class="form-control" type="number" name="price" min="0">
+			<label>Price:</label></label><input placeholder="$0.00" value="{{Input::old('price')}}" class="form-control" type="number" name="price" min="0">
 		</div>
 
 		<div class="form-group">
-			<label>Promotion Image: </label></label><input class="form-control" type="file" name="image" >
+			<label>Promotion Image: </label></label><input class="form-control" type="file" name="image_url" >
 		</div>
 
 		<div class="form-group">
@@ -42,10 +54,10 @@
 <script type="text/javascript" src="{{asset('components/jquery-ui/ui/core.js')}}"></script>
 <script type="text/javascript" src="{{asset('components/jquery-ui/ui/datepicker.js')}}"></script>
 <script>
-  $(function() {
-  	console.log('ready');
-    $( "#datepicker" ).datepicker();
+$(function() {
+	console.log('ready');
+	$( "#datepicker" ).datepicker();
 
-  });
+});
 </script>
 @endsection

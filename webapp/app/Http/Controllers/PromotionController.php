@@ -2,7 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Services\PromotionsService;
 use Illuminate\Http\Request;
 
 class PromotionController extends Controller {
@@ -32,9 +32,17 @@ class PromotionController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request, PromotionsService $promotions)
 	{
-		//
+		$data = $request->all();
+		$validator = $promotions->validate($data);
+
+		if ($validator->fails()){
+			return \Redirect::to('promotions')->withInput()->withErrors($validator);
+		}
+		else{	
+			$promotions->create($data);
+		}
 	}
 
 	/**
