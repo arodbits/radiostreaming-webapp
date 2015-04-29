@@ -1,7 +1,7 @@
 @extends('app')
 @section('content')
 <div class="container">
-	<form method="POST" action="/promotions">
+	<form method="POST" action="/promotions" enctype="multipart/form-data">
 		@if (count($errors) > 0)
 		<div class="alert alert-danger">
 			<strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -38,7 +38,7 @@
 		</div>
 
 		<div class="form-group">
-			<label>Promotion Image: </label></label><input class="form-control" type="file" name="image_url" >
+			<label>Promotion Image: </label></label><input class="form-control" type="file" name="image" >
 		</div>
 
 		<div class="form-group">

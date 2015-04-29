@@ -15,6 +15,12 @@ class PromotionsService {
 		]);
 	}
 	public function create(array $data){
+
+		$file =$data['image'];
+		$filename= $file->getClientOriginalName();
+		$path = public_path() . '/uploads';
+		$r = $file->move($path, $filename);
+
 		return Promotions::create([
 			'title' => $data['title'],
 			'address' => $data['address'],
@@ -24,6 +30,7 @@ class PromotionsService {
 			'price' => $data['price']
 		]);
 	}
+
 }
 
  ?>
