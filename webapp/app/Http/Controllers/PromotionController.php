@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Services\PromotionsService;
 use Illuminate\Http\Request;
+use App\Promotions;
 
 class PromotionController extends Controller {
 
@@ -14,7 +15,8 @@ class PromotionController extends Controller {
 	 */
 	public function index()
 	{
-		return view('promotions.create');
+		$promotions = Promotions::paginate(10);
+		return view('promotions.list_promotions', ['promotions'=>$promotions]);
 	}
 
 	/**
@@ -24,7 +26,7 @@ class PromotionController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('promotions.create');
 	}
 
 	/**
@@ -38,10 +40,11 @@ class PromotionController extends Controller {
 		$validator = $promotions->validate($data);
 
 		if ($validator->fails()){
-			return \Redirect::to('promotions')->withInput()->withErrors($validator);
+			return \Redirect::to('promotions/create')->withInput()->withErrors($validator);
 		}
 		else{	
 			$promotions->create($data);
+			return \Redirect::to('promotions');
 		}
 	}
 
@@ -53,7 +56,7 @@ class PromotionController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		
 	}
 
 	/**
@@ -64,7 +67,8 @@ class PromotionController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$promotion = Promotions::find($id);
+		return view('promotions.edit_promotion', ['promotion'=>$promotion]);
 	}
 
 	/**
@@ -73,9 +77,26 @@ class PromotionController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, Request $request, PromotionsService $promotions)
 	{
-		//
+		$data = $request->all();
+		$validator = $promotions->validate($data);
+
+		if ($validator->fails()){
+			return \Redirect::to("promotions/$id/edit")->withInput()->withErrors($validator);
+		}
+
+		else{	
+			$promotion = Promotions::find($id);
+			$promotion->title = $data['title'];
+			$promotion->address = $data['address'];
+			$promotion->date = date('Y-m-d', strtotime($data['date']));
+			
+			$promotion->time = date('H:i', strtotime($data['time']));
+			$promotion->price = $data['price'];
+			$promotion->save();	
+			return \Redirect::to("promotions");		
+		}
 	}
 
 	/**
@@ -86,7 +107,8 @@ class PromotionController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$promotion = Promotions::find($id);
+		$promotion->delete();
 	}
 
 }

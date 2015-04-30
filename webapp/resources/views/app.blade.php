@@ -7,10 +7,13 @@
 	<title>WebApp</title>
 
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{{asset('/components/font-awesome/css/font-awesome.min.css')}}">
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+
 
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

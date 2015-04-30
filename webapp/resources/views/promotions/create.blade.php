@@ -28,7 +28,7 @@
 			</div>
 			<div class="col-md-6">
 				<div class="form-group">
-					<p>Time: <input type="text" id="datepicker" value="{{Input::old('time')}}" name="time" class="form-control"></p>
+					<p>Time: <strong>Format(HH:MM PM/AM)<strong> <input type="text" id="datepicker" value="{{Input::old('time')}}" name="time" class="form-control"></p>
 				</div>
 			</div>
 		</div>
