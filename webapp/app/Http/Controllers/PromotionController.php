@@ -91,7 +91,6 @@ class PromotionController extends Controller {
 			$promotion->title = $data['title'];
 			$promotion->address = $data['address'];
 			$promotion->date = date('Y-m-d', strtotime($data['date']));
-			
 			$promotion->time = date('H:i', strtotime($data['time']));
 			$promotion->price = $data['price'];
 			$promotion->save();	
