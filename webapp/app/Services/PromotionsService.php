@@ -12,7 +12,7 @@ class PromotionsService {
 			'image_url' => 'max:255',
 			'date' => 'required|date',
 			'time' => array('regex:/[0-9]:[0-5][0-9]\s?(AM|PM|am|pm)|[0-1][0-2]:[0-5][0-9]\s?(AM|am|pm|PM)/', 'required'),
-			'price' => 'numeric|min:0'
+			'price' => array('regex:/[0-9]{1,20}.?[0-9]{0,20}/')
 		]);
 	}
 	public function create(array $data){
@@ -37,13 +37,13 @@ class PromotionsService {
 		return $newFile;
 	}
 
-	public function create($data){
+	public function save($data){
 		$readyData = $this->recordBuilder($data);
-		return Promotion::create($readyData);
+		return Promotions::create($readyData);
 	}
 
 	public function update($id,$data){
-		$promotion = Promotion::find($id);
+		$promotion = Promotions::find($id);
 		$readyData = $this->recordBuilder($data);
 		$promotion->save($readyData);
 		return $promotion;
