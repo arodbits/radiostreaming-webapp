@@ -37,15 +37,28 @@ class PromotionsService {
 		return $newFile;
 	}
 
-	public function save($data){
-		return Promotions::create([
+	public function create($data){
+		$readyData = $this->recordBuilder($data);
+		return Promotion::create($readyData);
+	}
+
+	public function update($id,$data){
+		$promotion = Promotion::find($id);
+		$readyData = $this->recordBuilder($data);
+		$promotion->save($readyData);
+		return $promotion;
+	}
+
+	private function recordBuilder($data){
+		$promotionReadyData = [
 			'title' => $data['title'],
 			'address' => $data['address'],
 			'image_url' => $data['image_url'],
 			'date' => date('Y-m-d', strtotime($data['date'])),
 			'time' => date('H:i', strtotime($data['time'])),
 			'price' => $data['price']
-		]);
+		];
+		return $promotionReadyData;
 	}
 
 	/*Main method for image validation - NO RETUNING ERROR MESSAGE YET*/
@@ -58,7 +71,7 @@ class PromotionsService {
 		}
 	}
     /*Check if the image is of a valid file size*/
-	public function isValidImageSize($file){
+	private function isValidImageSize($file){
 		$validImageSize = 500000;
 		$fileSize = $file->getClientSize();
 		if ($fileSize <= $validImageSize && $fileSize > 0){
@@ -67,7 +80,7 @@ class PromotionsService {
 	}
 	/*Check if the image is of a valid Mime Type*/
 
-	public function isValidMimeType($file){
+	private function isValidMimeType($file){
 		$fileMimeType = $file->getMimeType();
 		$validMimeTypes = ['image/jpeg', 'image/png'];
 		foreach($validMimeTypes as $mime){
