@@ -23,11 +23,11 @@ class PromotionsService {
 				// If the File upload successfully...
 				if($this->upload($file)){
 					$data['image_url'] = $file->getClientOriginalName();
-					$this->save($data);	
+					return $this->save($data);	
 				}
 			}
 		}
-		$this->save($data);
+		return $this->save($data);
 	}
 
 	public function upload($file){
@@ -45,11 +45,15 @@ class PromotionsService {
 	public function update($id,$data){
 		$promotion = Promotions::find($id);
 		$readyData = $this->recordBuilder($data);
-		$promotion->save($readyData);
+		$promotion->update($readyData);
 		return $promotion;
 	}
 
 	private function recordBuilder($data){
+		//Check for not available image 
+		if (!isset($data['image_url'])){
+			$data['image_url'] = null;
+		}
 		$promotionReadyData = [
 			'title' => $data['title'],
 			'address' => $data['address'],

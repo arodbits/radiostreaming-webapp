@@ -87,13 +87,14 @@ class PromotionController extends Controller {
 		}
 
 		else{	
-			$promotion = Promotions::find($id);
-			$promotion->title = $data['title'];
-			$promotion->address = $data['address'];
-			$promotion->date = date('Y-m-d', strtotime($data['date']));
-			$promotion->time = date('H:i', strtotime($data['time']));
-			$promotion->price = $data['price'];
-			$promotion->save();	
+			// $promotion = Promotions::find($id);
+			// $promotion->title = $data['title'];
+			// $promotion->address = $data['address'];
+			// $promotion->date = date('Y-m-d', strtotime($data['date']));
+			// $promotion->time = date('H:i', strtotime($data['time']));
+			// $promotion->price = $data['price'];
+			// $promotion->save();	
+			if($promotions->update($id,$data))
 			return \Redirect::to("promotions");		
 		}
 	}
