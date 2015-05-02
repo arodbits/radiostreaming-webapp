@@ -21,16 +21,15 @@ class PromotionsService {
 		return $this->save($processedData);
 	}
 	// Compose the promotion record 
-	public function recordBuilder($data){
-
+	public function recordBuilder($data)
+	{
 		$promotionReadyData = [
 			'title' => $data['title'],
 			'address' => $data['address'],
 			'date' => date('Y-m-d', strtotime($data['date'])),
 			'time' => date('H:i', strtotime($data['time'])),
 			'price' => $data['price']
-		];
-		
+		];	
 		if(isset($data['image']))
 		{
 			$file = $data['image'];
@@ -46,21 +45,23 @@ class PromotionsService {
 		}
 		return $promotionReadyData;
 	}
-
 	// Upload a new file
-	public function upload($file){
+	public function upload($file)
+	{
 		$path = public_path() . '/uploads';
 		$filename= $file->getClientOriginalName();
 		$newFile = $file->move($path, $filename);
 		return $newFile;
 	}
 	// Save a new promotion record
-	public function save($data){
+	public function save($data)
+	{
 		$readyData = $this->recordBuilder($data);
 		return Promotions::create($readyData);
 	}
 	//  Update a promotion recotd
-	public function update($id,$data){
+	public function update($id,$data)
+	{
 		$promotion = Promotions::find($id);
 		$readyData = $this->recordBuilder($data);
 		$promotion->update($readyData);

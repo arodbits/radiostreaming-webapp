@@ -1,6 +1,9 @@
 @extends('app')
 @section('content')
 <div class="container">
+
+    
+
 	<form method="POST" action="/promotions/{{$promotion->id}}" enctype="multipart/form-data">
 		@if (count($errors) > 0)
 		<div class="alert alert-danger">

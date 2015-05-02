@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 	<h2><i class="fa fa-cubes"></i> PROMOTIONS</h2>
-<table class="table table-bordered">
+    <table class="table table-bordered">
 	<thead>
 			<th>Id</th>
 			<th>Title</th>

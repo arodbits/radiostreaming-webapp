@@ -17,8 +17,11 @@ class AuthController extends Controller {
 	| a simple trait to add these behaviors. Why don't you explore it?
 	|
 	*/
-
+	protected $redirectTo = '/promotions';
+	
 	use AuthenticatesAndRegistersUsers;
+
+
 
 	/**
 	 * Create a new authentication controller instance.
@@ -33,6 +36,15 @@ class AuthController extends Controller {
 		$this->registrar = $registrar;
 
 		$this->middleware('guest', ['except' => 'getLogout']);
+	}
+	public function getRegister()
+	{
+    	return redirect('auth/login'); // or something else
+	}
+
+	public function postRegister()
+	{
+
 	}
 
 }
