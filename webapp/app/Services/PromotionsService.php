@@ -4,17 +4,18 @@ use App\Promotions;
 use Validator;
 
 class PromotionsService {
-
+	//Promotion validator 
 	public function validate(array $data){
 		return Validator::make($data, [
 			'title' => 'required|max:255',
 			'address' => 'required|max:255',
 			'image_url' => 'max:255',
 			'date' => 'required|date',
-			'time' => array('regex:/[0-9]:[0-5][0-9]\s?(AM|PM|am|pm)|[0-1][0-2]:[0-5][0-9]\s?(AM|am|pm|PM)/', 'required'),
-			'price' => array('regex:/[0-9]{1,20}.?[0-9]{0,20}/')
+			'time' => array('regex:/[0-9]:[0-5][0-9]\s?(AM|PM|am|pm)|[0-1][0-2]:[0-5][0-9]\s?(AM|am|pm|PM)/', 'required'), // 12 hours format.
+			'price' => array('regex:/[0-9]{1,20}.?[0-9]{0,20}/') //Decimal/Int values
 		]);
 	}
+	// Principal method for creating a new production entry
 	public function create(array $data){
 		if(isset($data['image'])){
 			$file = $data['image'];
@@ -29,26 +30,26 @@ class PromotionsService {
 		}
 		return $this->save($data);
 	}
-
+	// Upload a new file
 	public function upload($file){
 		$path = public_path() . '/uploads';
 		$filename= $file->getClientOriginalName();
 		$newFile = $file->move($path, $filename);
 		return $newFile;
 	}
-
+	// Save a new promotion record
 	public function save($data){
 		$readyData = $this->recordBuilder($data);
 		return Promotions::create($readyData);
 	}
-
+	//  Update a promotion recotd
 	public function update($id,$data){
 		$promotion = Promotions::find($id);
 		$readyData = $this->recordBuilder($data);
 		$promotion->update($readyData);
 		return $promotion;
 	}
-
+	// Compose the promotion record 
 	private function recordBuilder($data){
 		//Check for not available image 
 		if (!isset($data['image_url'])){

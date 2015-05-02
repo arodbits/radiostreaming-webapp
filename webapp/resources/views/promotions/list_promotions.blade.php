@@ -24,7 +24,7 @@
 			<td>{{date('h:i A', strtotime($promotion->time))}}</td>
 			<td>{{$promotion->price}}</td>
 			<td>
-				<a href="promotions/{{$promotion->id}}/edit" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i>Edit</a> 
+				<a href=" 	" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i>Edit</a> 
 				<form name="delete_form" action="promotions/{{$promotion->id}}" method="POST" style="display: inline">
 					<input type="hidden" name="_method" value="DELETE">
 					<input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -49,12 +49,13 @@
 				e.preventDefault();
 				var row = $(this).closest('tr');
 				var id = row.data('id');
-				var form = $('form[name="delete_form"]');
+				console.log(id);
+				var form = row.find('form');
 				var data = form.serialize();
 				var url = form.attr('action');
-				row.fadeOut();
 				$.post(url, data, function(result){
 					console.log(result);
+					row.fadeOut();
 				})
 			});
 		});
