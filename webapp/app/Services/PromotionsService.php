@@ -20,7 +20,16 @@ class PromotionsService {
 		$processedData = $this->handleIfAnImageExists($data);
 		return $this->save($processedData);
 	}
-	public function handleIfAnImageExists($data){
+	// Compose the promotion record 
+	public function recordBuilder($data){
+
+		$promotionReadyData = [
+			'title' => $data['title'],
+			'address' => $data['address'],
+			'date' => date('Y-m-d', strtotime($data['date'])),
+			'time' => date('H:i', strtotime($data['time'])),
+			'price' => $data['price']
+		];
 		
 		if(isset($data['image']))
 		{
@@ -31,12 +40,13 @@ class PromotionsService {
 				// If the File upload successfully...
 				if($this->upload($file))
 				{
-					$data['image_url'] = $file->getClientOriginalName();
-					return $data;
+					$promotionReadyData['image_url'] = $file->getClientOriginalName();
 				}
 			}
 		}
+		return $promotionReadyData;
 	}
+
 	// Upload a new file
 	public function upload($file){
 		$path = public_path() . '/uploads';
@@ -52,27 +62,11 @@ class PromotionsService {
 	//  Update a promotion recotd
 	public function update($id,$data){
 		$promotion = Promotions::find($id);
-		$processedData = $this->handleIfAnImageExists($data);
-		$readyData = $this->recordBuilder($processedData);
+		$readyData = $this->recordBuilder($data);
 		$promotion->update($readyData);
 		return $promotion;
 	}
-	// Compose the promotion record 
-	private function recordBuilder($data){
-		//Check for not available image 
-		if (!isset($data['image_url'])){
-			$data['image_url'] = null;
-		}
-		$promotionReadyData = [
-			'title' => $data['title'],
-			'address' => $data['address'],
-			'image_url' => $data['image_url'],
-			'date' => date('Y-m-d', strtotime($data['date'])),
-			'time' => date('H:i', strtotime($data['time'])),
-			'price' => $data['price']
-		];
-		return $promotionReadyData;
-	}
+	
 
 	/*Main method for image validation - NO RETUNING ERROR MESSAGE YET*/
 	public function isValidImage($file){

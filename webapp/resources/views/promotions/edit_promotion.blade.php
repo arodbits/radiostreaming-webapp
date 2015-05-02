@@ -35,7 +35,7 @@
 		</div>
 
 		<div class="form-group">
-			<label>Price:</label></label><input placeholder="$0.00" value="{{$promotion->price}}" class="form-control" type="text" name="price" min="0">
+			<label>Price:</label></label><input placeholder="$0.00" value="{{$promotion->price}}" class="form-control" type="text" name="price">
 		</div>
 
 		<div class="row">
