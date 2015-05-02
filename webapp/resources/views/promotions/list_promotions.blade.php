@@ -24,13 +24,12 @@
 			<td>{{date('h:i A', strtotime($promotion->time))}}</td>
 			<td>{{$promotion->price}}</td>
 			<td>
-				<a href=" 	" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i>Edit</a> 
+				<a href="/promotions/{{$promotion->id}}/edit" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i>Edit</a> 
 				<form name="delete_form" action="promotions/{{$promotion->id}}" method="POST" style="display: inline">
 					<input type="hidden" name="_method" value="DELETE">
 					<input type="hidden" name="_token" value="{{csrf_token()}}">
 					<button data-name="delete" type="submit" href="promotions" class="btn btn-danger"><i class="fa fa-times"></i>Delete</button>
 				</form>
-			
 			</td>
 		</tr>
 		@endforeach

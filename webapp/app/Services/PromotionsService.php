@@ -9,7 +9,7 @@ class PromotionsService {
 		return Validator::make($data, [
 			'title' => 'required|max:255',
 			'address' => 'required|max:255',
-			'image_url' => 'max:255',
+			'image_url' => 'max:500',
 			'date' => 'required|date',
 			'time' => array('regex:/[0-9]:[0-5][0-9]\s?(AM|PM|am|pm)|[0-1][0-2]:[0-5][0-9]\s?(AM|am|pm|PM)/', 'required'), // 12 hours format.
 			'price' => array('regex:/[0-9]{1,20}.?[0-9]{0,20}/') //Decimal/Int values
@@ -17,18 +17,25 @@ class PromotionsService {
 	}
 	// Principal method for creating a new production entry
 	public function create(array $data){
-		if(isset($data['image'])){
+		$processedData = $this->handleIfAnImageExists($data);
+		return $this->save($processedData);
+	}
+	public function handleIfAnImageExists($data){
+		
+		if(isset($data['image']))
+		{
 			$file = $data['image'];
 			// If the image is valid...
-			if($this->isValidImage($file)){
+			if($this->isValidImage($file))
+			{
 				// If the File upload successfully...
-				if($this->upload($file)){
+				if($this->upload($file))
+				{
 					$data['image_url'] = $file->getClientOriginalName();
-					return $this->save($data);	
+					return $data;
 				}
 			}
 		}
-		return $this->save($data);
 	}
 	// Upload a new file
 	public function upload($file){
@@ -45,7 +52,8 @@ class PromotionsService {
 	//  Update a promotion recotd
 	public function update($id,$data){
 		$promotion = Promotions::find($id);
-		$readyData = $this->recordBuilder($data);
+		$processedData = $this->handleIfAnImageExists($data);
+		$readyData = $this->recordBuilder($processedData);
 		$promotion->update($readyData);
 		return $promotion;
 	}
