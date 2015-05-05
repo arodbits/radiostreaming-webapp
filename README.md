@@ -1,3 +1,3 @@
 # Radioproezas-webapp
 
-Web application for Management Control of Station Connect Player. 
+Web application for Control Management of Station Connect Player App for iOS and Android. 
