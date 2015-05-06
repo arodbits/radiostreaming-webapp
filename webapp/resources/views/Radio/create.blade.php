@@ -1,6 +1,8 @@
+@extends('layout.admin')
+
+@section('content')
 <form class="form-horizontal">
 <fieldset>
-
 <!-- Form Name -->
 <legend>Radio Profile</legend>
 
@@ -59,3 +61,4 @@
 
 </fieldset>
 </form>
+@endsection

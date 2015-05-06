@@ -1,39 +1,37 @@
 @extends('layout.plain')
 
-@section('body')
-<body class="login-body">
-	<div class="container">
-		<div class="row">
-			<div class="full-centered">
-				<div class="col-md-8 col-md-offset-2">
+@section('content')
 
-					@if (count($errors) > 0)
-					<div class="alert alert-danger">
-						<strong>Whoops!</strong> There were some problems with your input.<br><br>
-						<ul>
-							@foreach ($errors->all() as $error)
-							<li>{{ $error }}</li>
-							@endforeach
-						</ul>
-					</div>
-					@endif
+<div class="full-centered">
+	<div class="col-md-8 col-md-offset-2">
 
-					<form class=" login-form-bg form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+		@if (count($errors) > 0)
+		<div class="alert alert-danger">
+			<strong>Whoops!</strong> There were some problems with your input.<br><br>
+			<ul>
+				@foreach ($errors->all() as $error)
+				<li>{{ $error }}</li>
+				@endforeach
+			</ul>
+		</div>
+		@endif
 
-						<div class="form-group">
-							<label class="col-md-4 control-label" style="color: rgba(255, 255, 255, 0.7)">E-Mail Address</label>
-							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
-							</div>
-						</div>
+		<form class=" login-form-bg form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
+			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-						<div class="form-group">
-							<label class="col-md-4 control-label" style="color: rgba(255, 255, 255, 0.7)">Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
-							</div>
-						</div>
+			<div class="form-group">
+				<label class="col-md-4 control-label" style="color: rgba(255, 255, 255, 0.7)">E-Mail Address</label>
+				<div class="col-md-6">
+					<input type="email" class="form-control" name="email" value="{{ old('email') }}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" style="color: rgba(255, 255, 255, 0.7)">Password</label>
+				<div class="col-md-6">
+					<input type="password" class="form-control" name="password">
+				</div>
+			</div>
 <!-- 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
@@ -56,6 +54,5 @@
 					</form>
 				</div>
 			</div>
-		</div>
-	</div>
-	@endsection
+
+			@endsection
