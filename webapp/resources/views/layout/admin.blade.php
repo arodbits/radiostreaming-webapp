@@ -37,15 +37,17 @@
 					<li><a href="/promotions"><i class="glyphicon glyphicon-link"></i>Promotions</a></li>
 				</ul>
 				
-				<hr>
-				
 			</div><!-- /span-3 -->
 			<div class="col-sm-9">
 				
 				<!-- column 2 -->   
+				
 				@yield('title') 
-					@yield('dashboard')
-				<hr>
+				
+				
+				@yield('dashboard')
+				
+				
 			</div>
 		</div>
 	</div>

@@ -14,7 +14,7 @@ class RadioController extends Controller {
 	 */
 	public function index()
 	{
-		return \View::make('radio.create');
+		return \View::make('radio.detail');
 	}
 
 	/**

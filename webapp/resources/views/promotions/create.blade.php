@@ -1,6 +1,8 @@
 @extends('app')
 @section('content')
 <div class="container">
+	<h3><i class="glyphicon glyphicon glyphicon-bullhorn"></i> New Promotion</h3>
+
 	<form method="POST" action="/promotions" enctype="multipart/form-data">
 		@if (count($errors) > 0)
 		<div class="alert alert-danger">
@@ -42,8 +44,8 @@
 		</div>
 
 		<div class="form-group">
-			<button type="submit"> ADD </button>
-			<a href="#">Cancel</a>
+			<button type="submit" class="btn btn-success"> ADD </button>
+			<a href="/promotions" class="btn btn-danger">Cancel</a>
 		</div>
 
 	</form>

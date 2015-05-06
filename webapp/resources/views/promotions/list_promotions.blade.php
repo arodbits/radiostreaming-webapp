@@ -1,11 +1,23 @@
 @extends('layout.admin')
 @section('title')
-	<h3><i class="glyphicon glyphicon-dashboard"></i> Promotions</h3> 
-@endsection
-@section('dashboard')
 
-    <table class="table table-bordered">
-	<thead>
+<div class="row">
+	<div class="col-sm-9">
+		<h3><i class="glyphicon glyphicon-dashboard"></i> Promotions</h3> 
+	</div>
+	<div class="col-sm-3 add-new">
+		<a href="/promotions/create"><i class="glyphicon glyphicon-plus"></i> Add New</a>
+	</div>
+</div>
+
+
+@endsection
+
+@section('dashboard')
+<div class="row">
+<div class="col-sm-12">
+	<table class="table table-bordered">
+		<thead>
 			<th>Id</th>
 			<th>Title</th>
 			<th>Address</th>
@@ -36,25 +48,27 @@
 		@endforeach
 	</tbody>
 </table>
+</div>
+</div>
 {!!$promotions->render()!!}
 @endsection
 
 @section('javascript')
-	<script type="text/javascript">
-		$(function(){
-			$("button[data-name='delete']").on('click', function(e){
-				e.preventDefault();
-				var row = $(this).closest('tr');
-				var id = row.data('id');
-				console.log(id);
-				var form = row.find('form');
-				var data = form.serialize();
-				var url = form.attr('action');
-				$.post(url, data, function(result){
-					console.log(result);
-					row.fadeOut();
-				})
-			});
-		});
-	</script>
+<script type="text/javascript">
+$(function(){
+	$("button[data-name='delete']").on('click', function(e){
+		e.preventDefault();
+		var row = $(this).closest('tr');
+		var id = row.data('id');
+		console.log(id);
+		var form = row.find('form');
+		var data = form.serialize();
+		var url = form.attr('action');
+		$.post(url, data, function(result){
+			console.log(result);
+			row.fadeOut();
+		})
+	});
+});
+</script>
 @endsection
