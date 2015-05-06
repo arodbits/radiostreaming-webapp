@@ -15,6 +15,7 @@ class CreatePromotionsTable extends Migration {
 		Schema::create('promotions', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->integer('radio_id')->unsigned();
 			$table->string('title');
 			$table->string('address');
 			$table->string('image_url');

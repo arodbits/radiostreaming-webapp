@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', function(){
+	$promotions = App\Radio::find(1)->promotions()->first();
+	echo $promotions;
+
+});
 
 
 Route::controllers([

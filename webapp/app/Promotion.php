@@ -2,8 +2,12 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Promotions extends Model {
+class Promotion extends Model {
 
 	protected $fillable = ['title', 'address', 'price', 'date', 'time', 'image_url'];
+
+	public function user() {
+		return $this->belongsTo('App\Radio');
+	}
 
 }
