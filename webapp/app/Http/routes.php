@@ -11,11 +11,7 @@
 |
 */
 
-Route::get('/', function(){
-	$promotions = App\Radio::find(1)->promotions()->first();
-	echo $promotions;
-
-});
+Route::get('/', 'WelcomeController@index');
 
 
 Route::controllers([
@@ -24,3 +20,4 @@ Route::controllers([
 ]);
 
 Route::resource('promotions','PromotionController');
+Route::resource('radio','RadioController');
