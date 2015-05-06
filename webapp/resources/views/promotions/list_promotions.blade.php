@@ -1,8 +1,9 @@
-@extends('app')
+@extends('layout.admin')
+@section('title')
+	<h3><i class="glyphicon glyphicon-dashboard"></i> Promotions</h3> 
+@endsection
+@section('dashboard')
 
-@section('content')
-<div class="container">
-	<h2><i class="fa fa-cubes"></i> PROMOTIONS</h2>
     <table class="table table-bordered">
 	<thead>
 			<th>Id</th>
@@ -35,10 +36,7 @@
 		@endforeach
 	</tbody>
 </table>
-
 {!!$promotions->render()!!}
-
-</div>
 @endsection
 
 @section('javascript')

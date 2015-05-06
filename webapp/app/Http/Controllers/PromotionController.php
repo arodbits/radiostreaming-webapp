@@ -4,7 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Services\PromotionsService;
 use Illuminate\Http\Request;
-use App\Promotions;
+use App\Promotion;
 
 class PromotionController extends Controller {
 
@@ -19,7 +19,7 @@ class PromotionController extends Controller {
 	 */
 	public function index()
 	{
-		$promotions = Promotions::paginate(10);
+		$promotions = Promotion::paginate(10);
 		return view('promotions.list_promotions', ['promotions'=>$promotions]);
 	}
 
@@ -71,7 +71,7 @@ class PromotionController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$promotion = Promotions::find($id);
+		$promotion = Promotion::find($id);
 		return view('promotions.edit_promotion', ['promotion'=>$promotion]);
 	}
 
@@ -104,7 +104,7 @@ class PromotionController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		$promotion = Promotions::find($id);
+		$promotion = Promotion::find($id);
 		$promotion->delete();
 	}
 

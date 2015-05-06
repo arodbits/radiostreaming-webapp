@@ -5,17 +5,17 @@
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 				<span class="icon-toggle"></span>
 			</button>
-			<a class="navbar-brand" href="#">Control Panel</a>
+			<a class="navbar-brand text-danger" href="/"><span class="text-danger"> Station Connect</span></a>
 		</div>
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
 				
 				<li class="dropdown">
 					<a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
-						<i class="glyphicon glyphicon-user"></i> Admin <span class="caret"></span></a>
+						<i class="glyphicon glyphicon-user"></i> {{Auth::user()->name}} <span class="caret"></span></a>
 						<ul id="g-account-menu" class="dropdown-menu" role="menu">
 							<li><a href="#">My Profile</a></li>
-							<li><a href="#"><i class="glyphicon glyphicon-lock"></i> Logout</a></li>
+							<li><a href="/auth/logout"><i class="glyphicon glyphicon-lock"></i> Logout</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -33,7 +33,7 @@
 				<hr>
 				
 				<ul class="nav nav-stacked">
-					<li><a href="javascript:;"><i class="glyphicon glyphicon-flash"></i>Radio</a></li>
+					<li><a href="/radio"><i class="glyphicon glyphicon-flash"></i>My Radio</a></li>
 					<li><a href="/promotions"><i class="glyphicon glyphicon-link"></i>Promotions</a></li>
 				</ul>
 				
@@ -43,7 +43,7 @@
 			<div class="col-sm-9">
 				
 				<!-- column 2 -->   
-				<h3><i class="glyphicon glyphicon-dashboard"></i> Dashboard</h3>  
+				@yield('title') 
 					@yield('dashboard')
 				<hr>
 			</div>

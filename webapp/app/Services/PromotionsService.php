@@ -1,6 +1,6 @@
 <?php
 namespace App\Services;
-use App\Promotions;
+use App\Promotion;
 use Validator;
 
 class PromotionsService {
@@ -57,12 +57,12 @@ class PromotionsService {
 	public function save($data)
 	{
 		$readyData = $this->recordBuilder($data);
-		return Promotions::create($readyData);
+		return Promotion::create($readyData);
 	}
 	//  Update a promotion recotd
 	public function update($id,$data)
 	{
-		$promotion = Promotions::find($id);
+		$promotion = Promotion::find($id);
 		$readyData = $this->recordBuilder($data);
 		$promotion->update($readyData);
 		return $promotion;
