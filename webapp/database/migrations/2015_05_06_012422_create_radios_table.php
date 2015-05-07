@@ -21,6 +21,11 @@ class CreateRadiosTable extends Migration {
 			$table->string('logo_url', 255);
 			$table->string('email', 60);
 			$table->string('telephone', 14);
+			$table->string('youtube', 255);
+			$table->string('facebook', 255);
+			$table->string('twitter',255);
+			$table->string('instagram', 255);
+			$table->string('streaming_url',255);
 			$table->timestamps();
 		});
 	}

@@ -10,6 +10,7 @@ class RadioController extends Controller {
 	protected $service;
 
 	public function __construct(RadioService $service){
+		$this->middleware('auth');
 		$this->service = $service;
 	}
 

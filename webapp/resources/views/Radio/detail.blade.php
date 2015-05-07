@@ -25,6 +25,17 @@
 				</li>
 			</li>
 		</ul>
+		<ul class="list-group">
+			<li class="list-group-item text-muted" contenteditable="false">Social</li>
+			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Facebook</strong></span> {{$radio->facebook}}</li>
+			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Twitter</strong></span>{{$radio->twitter}}</li>
+			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Youtube</strong></span> {{$radio->youtube}}</li>
+			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Instagram</strong></span>{{$radio->instagram}}</li>
+			</li>
+		</ul>
+		<ul class="list-group">
+			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Streaming URL</strong></span> {{$radio->streaming_url}}</li>
+		</ul>
 		<div class="row">
 	
 	<div class="col-sm-3">

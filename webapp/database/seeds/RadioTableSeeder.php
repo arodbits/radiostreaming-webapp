@@ -12,6 +12,11 @@ class RadioTableSeeder extends Seeder{
 			'email' => 'info.momentodedios@gmail.com',
 			'telephone' => '(999)-999-9999',
 			'logo_url' => '2cdaf31.jpg',
+			'youtube' => 'youtubeurl',
+			'facebook' => 'facebookurl',
+			'twitter' => 'twitterurl',
+			'instagram' =>'instagramurl',
+			'streaming_url' => 'streamurl'
  		]);
 	}
 }
