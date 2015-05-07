@@ -21,7 +21,9 @@
           </div>
 
         </div>
-        <form>
+        <form enctype="multipart/form-data" method="POST" action="/radio/{{$radio->id}}">
+          <input type="hidden" name="_token" value={{csrf_token()}}>
+          <input type="hidden" name="_method" value="PUT">
         <div class="col-sm-9">
           <div class="form-group">
             <label>Name:</label> <input type="text" class="form-control" value="{{$radio->name}}" name="name">
@@ -45,7 +47,7 @@
             </div>
           </div>
           <div class="form-group">
-
+  
           <button class="btn btn-success" type="submit"><i class="fa fa-check "></i> SAVE CHANGES </button>
           <a class="btn btn-danger" href="/radio/{{$radio->id}}"><i class="fa fa-close "></i> CANCEL</a>
         </div>  

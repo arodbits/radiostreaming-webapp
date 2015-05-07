@@ -4,8 +4,13 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Radio;
 use Illuminate\Http\Request;
-
+use App\Services\RadioService;
 class RadioController extends Controller {
+	protected $service;
+
+	public function __construct(RadioService $service){
+		$this->service = $service;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -67,9 +72,11 @@ class RadioController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, Request $request)
 	{
-		//
+		$radio = $request->all();
+		$validator = $this->service->validate($radio);
+		if($validator)
 	}
 
 	/**
