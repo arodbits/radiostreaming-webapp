@@ -45,8 +45,8 @@
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-success">Login</button>
-								<a href="/" class="btn btn-primary">Cancel</a>
+								<button type="submit" class="btn btn-success login-primary">Login</button>
+								<a href="/" class="btn btn-primary login-danger">Cancel</a>
 
 								<!-- <a class="btn btn-link" style="color: rgb(95, 100, 115);" href="{{ url('/password/email') }}">Forgot Your Password?</a> -->
 							</div>

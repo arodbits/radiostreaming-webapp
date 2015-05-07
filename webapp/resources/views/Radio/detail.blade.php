@@ -22,7 +22,7 @@
 			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Email</strong></span> {{$radio->email}}</li>
 			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Phone</strong></span>{{$radio->telephone}}</li>
 			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Address</strong></span> {{$radio->address}}
-				Doe</li>
+				</li>
 			</li>
 		</ul>
 		<div class="row">

@@ -6,6 +6,7 @@ use App\Radio;
 use Illuminate\Http\Request;
 use App\Services\RadioService;
 class RadioController extends Controller {
+	
 	protected $service;
 
 	public function __construct(RadioService $service){
@@ -76,7 +77,11 @@ class RadioController extends Controller {
 	{
 		$radio = $request->all();
 		$validator = $this->service->validate($radio);
-		if($validator)
+		if ($validator->fails()){
+			dd($validator->errors());
+		}
+		else if ($this->service->update($id, $radio))
+			return redirect("radio/$id");
 	}
 
 	/**

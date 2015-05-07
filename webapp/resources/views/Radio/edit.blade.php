@@ -9,19 +9,19 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      
+       <form enctype="multipart/form-data" method="POST" action="/radio/{{$radio->id}}">
         <div class="col-sm-3">
           <div class="row">
             <img class="img-rounded img-responsive" src="/uploads/{{$radio->logo_url}}">
           </div>
           <div class="row">
             <div>
-              <h4>Change Logo</h4><input type="file" name="logo">
+              <h4>Change Logo</h4><input type="file" name="image">
             </div>
           </div>
 
         </div>
-        <form enctype="multipart/form-data" method="POST" action="/radio/{{$radio->id}}">
+       
           <input type="hidden" name="_token" value={{csrf_token()}}>
           <input type="hidden" name="_method" value="PUT">
         <div class="col-sm-9">
