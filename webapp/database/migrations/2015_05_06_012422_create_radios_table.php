@@ -19,6 +19,8 @@ class CreateRadiosTable extends Migration {
 			$table->string('address', 60);
 			$table->string('slogan', 60);
 			$table->string('logo_url', 255);
+			$table->string('email', 60);
+			$table->string('telephone', 12);
 			$table->timestamps();
 		});
 	}

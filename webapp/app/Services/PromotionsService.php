@@ -17,8 +17,7 @@ class PromotionsService {
 	}
 	// Principal method for creating a new production entry
 	public function create(array $data){
-		$processedData = $this->handleIfAnImageExists($data);
-		return $this->save($processedData);
+		return $this->save($data);
 	}
 	// Compose the promotion record 
 	public function recordBuilder($data)
@@ -32,10 +31,12 @@ class PromotionsService {
 		];	
 		if(isset($data['image']))
 		{
+
 			$file = $data['image'];
 			// If the image is valid...
 			if($this->isValidImage($file))
 			{
+
 				// If the File upload successfully...
 				if($this->upload($file))
 				{
@@ -43,6 +44,7 @@ class PromotionsService {
 				}
 			}
 		}
+
 		return $promotionReadyData;
 	}
 	// Upload a new file

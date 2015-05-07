@@ -2,7 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Radio;
 use Illuminate\Http\Request;
 
 class RadioController extends Controller {
@@ -14,7 +14,7 @@ class RadioController extends Controller {
 	 */
 	public function index()
 	{
-		return \View::make('radio.detail');
+		
 	}
 
 	/**
@@ -45,7 +45,8 @@ class RadioController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		$radio = Radio::find($id);
+		return view('radio.detail', ['radio'=>$radio]);
 	}
 
 	/**
@@ -56,7 +57,8 @@ class RadioController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$radio = Radio::find($id);
+		return view('radio.edit', ['radio' => $radio]);
 	}
 
 	/**

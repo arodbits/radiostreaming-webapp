@@ -10,26 +10,29 @@
 </div>
 @endsection
 @section('dashboard')
-
-
 <div class="row">
 	<div class="col-sm-3">
-		<img title="profile image" class="img-rounded img-responsive" src="{{asset('images/loginbg.jpg')}}">
-		<h1>RADIO PROEZAS</h1>
-		<P>En Cristo Podemos!</P>
+		<img title="profile image" class="img-rounded img-responsive" src="/uploads/{{$radio->logo_url}}">
+		<h1>{{$radio->name}}</h1>
+		<P>{{$radio->slogan}}</P>
 	</div>
 	<div class="col-sm-9">
 		<ul class="list-group">
 			<li class="list-group-item text-muted" contenteditable="false">General Information</li>
-			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Email</strong></span> 2.13.2014</li>
-			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Telephone</strong></span> Yesterday</li>
-			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Address</strong></span> Joseph
+			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Email</strong></span> {{$radio->email}}</li>
+			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Phone</strong></span>{{$radio->telephone}}</li>
+			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Address</strong></span> {{$radio->address}}
 				Doe</li>
 			</li>
 		</ul>
+		<div class="row">
+	
+	<div class="col-sm-3">
+   <a href="/radio/{{$radio->id}}/edit"class="btn btn-info"> Edit My Radio Information</a>
+   </div>
+</div>
 	</div>
 </div>	
-
 
 
 @endsection

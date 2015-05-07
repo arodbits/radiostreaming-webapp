@@ -32,9 +32,8 @@
 					<a class="navbar-brand text-danger" href="/">Station Connect</a>
 				</div>
 				<div class="navbar-collapse collapse" id="navbar-collapsible">
-					<ul class="nav navbar-nav">
-						<li><a href="{{ url('/promotions') }}">Promotions</a></li>
-					</ul>
+					
+					@yield('return')
 
 					<ul class="nav navbar-nav navbar-right">
 						@if (Auth::guest())

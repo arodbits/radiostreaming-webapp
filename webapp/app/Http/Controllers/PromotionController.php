@@ -106,6 +106,7 @@ class PromotionController extends Controller {
 	{
 		$promotion = Promotion::find($id);
 		$promotion->delete();
+		return redirect('/promotions');
 	}
 
 }

@@ -8,6 +8,7 @@
 	<div class="col-sm-3 add-new">
 		<a href="/promotions/create"><i class="glyphicon glyphicon-plus"></i> Add New</a>
 	</div>
+	<hr>
 </div>
 
 
@@ -65,7 +66,6 @@ $(function(){
 		var data = form.serialize();
 		var url = form.attr('action');
 		$.post(url, data, function(result){
-			console.log(result);
 			row.fadeOut();
 		})
 	});
