@@ -21,3 +21,7 @@ Route::controllers([
 
 Route::resource('promotions','PromotionController');
 Route::resource('radio','RadioController');
+
+Route::post('api/access_token', function(){
+	return Response::json(Authorizer::issueAccessToken());
+});
