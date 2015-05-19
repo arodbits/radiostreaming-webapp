@@ -35,5 +35,9 @@ Route::get('api/promotions', ["before" =>'oauth', function(){
 
 Route::get('api/radio/{id}', ["before" =>'oauth', function($id){
 	$radio = \App\Radio::find($id);
+	if(isset($radio["logo_url"])){
+		$radio["logo"] = base64_encode(File::get('uploads/'. $radio["logo_url"])); 
+		unset($radio["logo_url"]);
+	}
 	return Response::json($radio);
 }]);
