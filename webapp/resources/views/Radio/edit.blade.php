@@ -42,16 +42,16 @@
           </div>
           <div class="col-sm-6">
             <div class="form-group">
-              <label>Facebook:</label> <input type="text" class="form-control" value="{{$radio->facebook}}" name="address">
+              <label>Facebook:</label> <input type="text" class="form-control" value="{{$radio->facebook}}" name="facebook">
             </div>
             <div class="form-group">
-              <label>Twitter:</label> <input type="text" class="form-control" value="{{$radio->twitter}}" name="address">
+              <label>Twitter:</label> <input type="text" class="form-control" value="{{$radio->twitter}}" name="twitter">
             </div>
             <div class="form-group">
-              <label>Youtube:</label> <input type="text" class="form-control" value="{{$radio->youtube}}" name="address">
+              <label>Youtube:</label> <input type="text" class="form-control" value="{{$radio->youtube}}" name="youtube">
             </div>
             <div class="form-group">
-              <label>Instagram:</label> <input type="text" class="form-control" value="{{$radio->instagram}}" name="address">
+              <label>Instagram:</label> <input type="text" class="form-control" value="{{$radio->instagram}}" name="instagram">
             </div>
           </div>
         </div>

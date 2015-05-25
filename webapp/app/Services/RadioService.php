@@ -31,7 +31,11 @@ class RadioService extends LaravelDataService{
 		'address' =>$data['address'],
 		'email' => $data['email'],
 		'telephone' =>$data['phone'],
-		'streaming_url' =>$data['streaming_url']
+		'streaming_url' =>$data['streaming_url'],
+		'facebook' =>$data['facebook'],
+		'twitter' =>$data['twitter'],
+		'instagram' =>$data['instagram'],
+		'youtube' =>$data['youtube']
 		];
 		
 		if($imageUrl = $this->imageProcessor($data)){
