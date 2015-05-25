@@ -1,0 +1,22 @@
+{
+  "name": "public",
+  "version": "0.0.0",
+  "homepage": "https://github.com/anthony2727/radioproezas-webapp",
+  "authors": [
+    "Anthony Rodriguez <anthonyrodriguez.itt@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "font-awesome": "~4.3.0",
+    "jquery-ui": "~1.11.4"
+  }
+}
