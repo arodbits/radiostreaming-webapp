@@ -41,3 +41,9 @@ Route::get('api/radio/{id}', ["before" =>'oauth', function($id){
 	return Response::json($radio);
 }]);
 
+Route::get('test', function(){
+
+	dd($app->environment());
+    
+});
+
