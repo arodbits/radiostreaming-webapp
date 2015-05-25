@@ -45,5 +45,6 @@ Route::get('test', function(){
 
 	dd($app->environment());
     
+    //
 });
 
