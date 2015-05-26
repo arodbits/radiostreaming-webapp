@@ -72,6 +72,7 @@ class PromotionController extends Controller {
 	public function edit($id)
 	{
 		$promotion = Promotion::find($id);
+		
 		return view('promotions.edit_promotion', ['promotion'=>$promotion]);
 	}
 
