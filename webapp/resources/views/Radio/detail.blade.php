@@ -19,22 +19,20 @@
 	<div class="col-sm-9">
 		<ul class="list-group">
 			<li class="list-group-item text-muted" contenteditable="false">General Information</li>
-			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Email</strong></span> {{$radio->email}}</li>
-			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Phone</strong></span>{{$radio->telephone}}</li>
-			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Address</strong></span> {{$radio->address}}
-				</li>
-			</li>
+			<li class="list-group-item text-right"><span class="text-left"><strong class="">Email</strong></span> {{$radio->email}}</li>
+			<li class="list-group-item text-right"><span class="text-left"><strong class="">Phone</strong></span>{{$radio->telephone}}</li>
+			<li class="list-group-item"><div><span class="text-left"><strong>Address</strong></span> <span class="text-right">{{$radio->address}} jdskfj</span></div></li>
 		</ul>
 		<ul class="list-group">
 			<li class="list-group-item text-muted" contenteditable="false">Social</li>
-			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Facebook</strong></span> {{$radio->facebook}}</li>
-			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Twitter</strong></span>{{$radio->twitter}}</li>
-			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Youtube</strong></span> {{$radio->youtube}}</li>
-			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Instagram</strong></span>{{$radio->instagram}}</li>
+			<li class="list-group-item text-right"><span class="text-left"><strong class="">Facebook</strong></span> {{$radio->facebook}}</li>
+			<li class="list-group-item text-right"><span class="text-left"><strong class="">Twitter</strong></span>{{$radio->twitter}}</li>
+			<li class="list-group-item text-right"><span class="text-left"><strong class="">Youtube</strong></span> {{$radio->youtube}}</li>
+			<li class="list-group-item text-right"><span class="text-left"><strong class="">Instagram</strong></span>{{$radio->instagram}}</li>
 			</li>
 		</ul>
 		<ul class="list-group">
-			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Streaming URL</strong></span> {{$radio->streaming_url}}</li>
+			<li class="list-group-item text-right"><span class="text-left"><strong class="">Streaming URL</strong></span> {{$radio->streaming_url}}</li>
 		</ul>
 		<div class="row">
 	
