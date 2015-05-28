@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('UserTableSeeder');
 		$this->call('RadioTableSeeder');
 		$this->call('OAuth2ClientsTableSeeder');
+		$this->call('RadioUserSeeder');
 	}
 
 }

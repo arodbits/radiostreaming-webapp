@@ -6,6 +6,7 @@ class RadioTableSeeder extends Seeder{
 	public function run(){
 		DB::table('radios')->delete();
 		Radio::create([
+			'id' => 'HgPcsQZMNbs4k7Jcwgd8YutTHaNeb91oEJiYtoK0',
 			'name' => 'Radio Proezas',
 			'address' => 'Some address',
 			'slogan' => 'En Cristo Podemos',

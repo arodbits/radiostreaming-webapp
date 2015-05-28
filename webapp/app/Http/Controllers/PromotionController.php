@@ -6,6 +6,7 @@ use App\Services\PromotionsService;
 use Illuminate\Http\Request;
 use App\Promotion;
 
+
 class PromotionController extends Controller {
 
 	public function __construct(){
@@ -20,8 +21,10 @@ class PromotionController extends Controller {
 	public function index()
 	{
 		$promotions = Promotion::paginate(10);
+		$user = \Auth::user();
+		dd(\App\User::find(1)->radios->all());
 		return view('promotions.list_promotions', ['promotions'=>$promotions]);
-	}
+	}	
 
 	/**
 	 * Show the form for creating a new resource.
