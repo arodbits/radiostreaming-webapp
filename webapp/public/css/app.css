@@ -4810,7 +4810,8 @@ a.thumbnail.active {
 }
 .list-group-item {
   position: relative;
-  display: block;
+  display: inline-block;
+  width: 100%;
   padding: 10px 15px;
   margin-bottom: -1px;
   background-color: #ffffff;
