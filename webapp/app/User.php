@@ -31,8 +31,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
-	public function radios(){
-		return $this->belongsToMany('App\Radio');
+	public function radio(){
+		return $this->belongsTo('App\Radio');
 	}
 
 }

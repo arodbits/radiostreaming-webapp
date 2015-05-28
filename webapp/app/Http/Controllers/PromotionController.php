@@ -21,8 +21,6 @@ class PromotionController extends Controller {
 	public function index()
 	{
 		$promotions = Promotion::paginate(10);
-		$user = \Auth::user();
-		dd(\App\User::find(1)->radios->all());
 		return view('promotions.list_promotions', ['promotions'=>$promotions]);
 	}	
 

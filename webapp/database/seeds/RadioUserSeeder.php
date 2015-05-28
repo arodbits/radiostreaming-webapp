@@ -6,7 +6,7 @@ class RadioUserSeeder extends Seeder{
 		DB::table('radio_user')->delete();
 		RadioUser::create([
 			'user_id' => 1,
-			'radio_id' => 'HgPcsQZMNbs4k7Jcwgd8YutTHaNeb91oEJiYtoK0'
+			'radio_id' => 'HgPcsQZMNbs4k7Jcwgd8YutTHaNeb91oEJiYtoK0' //This client_id is only valid for demo purpose
 		]);
 	}
 }

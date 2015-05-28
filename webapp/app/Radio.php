@@ -20,8 +20,8 @@ class Radio extends Model{
 		return $this->hasMany('App\Promotion');
 	}
 
-	public function users(){
-		return $this->belongsToMany('App\Radio');
+	public function user(){
+		return $this->hasOne('App\User');
 	}
 
 }

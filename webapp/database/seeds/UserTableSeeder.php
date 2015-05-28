@@ -10,7 +10,8 @@ class UserTableSeeder extends Seeder {
     User::create(array(
       'email' => 'info.momentodedios@gmail.com',
       'password' => Hash::make('123456'),
-      'name' => 'Anthony'
+      'name' => 'Anthony',
+      'radio_id' => 'HgPcsQZMNbs4k7Jcwgd8YutTHaNeb91oEJiYtoK0' //This client_id is only valid for demo purpose
     ));
   }
 
