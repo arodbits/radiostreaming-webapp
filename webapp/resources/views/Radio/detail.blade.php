@@ -31,6 +31,7 @@
 			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Instagram</strong></span>{{$radio->instagram}}</li>
 			</li>
 		</ul>
+		
 		<ul class="list-group">
 			<li class="list-group-item text-right"><span class="pull-left"><strong class="">Streaming URL</strong></span> {{$radio->streaming_url}}</li>
 		</ul>

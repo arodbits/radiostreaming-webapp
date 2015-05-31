@@ -1,11 +1,16 @@
 <?php namespace App\Services;
 use Validator;
 use App\Contracts\LaravelDataContract;
-
+use App\Services\ImageService;
 abstract class LaravelDataService implements LaravelDataContract{
 
 	protected $model;
 	protected $rules;
+	protected $imageService;
+
+	public function __construct(ImageService $imageService){
+		$this->imageService = $imageService;
+	}
 
 	public function validate(array $data){
 		return Validator::make($data, $this->rules);
@@ -14,14 +19,19 @@ abstract class LaravelDataService implements LaravelDataContract{
 	public function create(array $data){
 		return $this->save($data);
 	}
-	
+	/**
+	 * [imageProcessor description]
+	 * @param  Array
+	 * @return String
+	 */
 	protected function imageProcessor($data){
 
 		if(isset($data['image']))
 		{
 			$file = $data['image'];
+
 			// If the image is valid...
-			if($this->isValidImage($file))
+			if($this->imageService->isValid($file))
 			{
 				// If the File upload successfully...
 				if($this->upload($file))
@@ -53,35 +63,5 @@ abstract class LaravelDataService implements LaravelDataContract{
 		$record->update($readyData);
 		return $record;
 	}
-	
-	/*Main method for image validation - NO RETUNING ERROR MESSAGE YET*/
-	protected function isValidImage($file){
-		$validImageMime = $this->isValidMimeType($file);
-		$validImageSize = $this->isValidImageSize($file);
-		
-		if($validImageMime && $validImageSize){
-			return $file;
-		}
-	}
-    /*Check if the image is of a valid file size*/
-	protected function isValidImageSize($file){
-		$validImageSize = 500000;
-		$fileSize = $file->getClientSize();
-		if ($fileSize <= $validImageSize && $fileSize > 0){
-			return $fileSize;
-		}
-	}
-	/*Check if the image is of a valid Mime Type*/
-
-	protected function isValidMimeType($file){
-		$fileMimeType = $file->getMimeType();
-		$validMimeTypes = ['image/jpeg', 'image/png'];
-		foreach($validMimeTypes as $mime){
-			if ($fileMimeType==$mime){
-				return $fileMimeType;
-			}
-		}
-	}
-
 }
 ?>
