@@ -30,9 +30,12 @@ class PromotionsService extends LaravelDataService {
 			'price' => $data['price']
 		];	
 
-
-		if($imageUrl = $this->imageProcessor($data)){
-			$record['image_url'] = $imageUrl;
+        if (isset($data["image"]))
+        {
+        	$file = $data["image"];
+			if($imageUrl = $this->imageProcessor($file)){
+				$record['image_url'] = $imageUrl;
+			}
 		}
 		
 		return $record;

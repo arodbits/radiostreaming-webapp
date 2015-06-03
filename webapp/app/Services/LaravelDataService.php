@@ -24,12 +24,10 @@ abstract class LaravelDataService implements LaravelDataContract{
 	 * @param  Array
 	 * @return String
 	 */
-	protected function imageProcessor($data){
+	protected function imageProcessor($file=null){
 
-		if(isset($data['image']))
+		if($file != null)
 		{
-			$file = $data['image'];
-
 			// If the image is valid...
 			if($this->imageService->isValid($file))
 			{
