@@ -15,10 +15,6 @@ abstract class LaravelDataService implements LaravelDataContract{
 	public function validate(array $data){
 		return Validator::make($data, $this->rules);
 	}
-	// Principal method for creating a new production entry
-	public function create(array $data){
-		return $this->save($data);
-	}
 	/**
 	 * [imageProcessor description]
 	 * @param  Array
@@ -50,7 +46,9 @@ abstract class LaravelDataService implements LaravelDataContract{
 	// Save a new record
 	public function save($data)
 	{
+		//Construct the data record. How can we improve it?
 		$readyData = $this->recordBuilder($data);
+		// Call to the corresponding Laravel Model. New entry using the create method. 
 		return $this->model->create($readyData);
 	}
 	//  Update a record

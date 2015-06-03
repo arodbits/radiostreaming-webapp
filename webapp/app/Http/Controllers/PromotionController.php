@@ -48,7 +48,7 @@ class PromotionController extends Controller {
 			return \Redirect::to('promotions/create')->withInput()->withErrors($validator);
 		}
 		else{	
-			$promotions->create($data);
+			$promotions->save($data);
 			return \Redirect::to('promotions');
 		}
 	}

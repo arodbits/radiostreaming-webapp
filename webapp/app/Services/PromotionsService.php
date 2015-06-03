@@ -7,7 +7,8 @@ class PromotionsService extends LaravelDataService {
 	public function __construct(){
 		parent::__construct(new \App\Services\ImageService);
 
-		$this->model = new Promotion;	
+		$this->model = new Promotion;
+
 		$this->rules = [
 			'title' => 'required|max:255',
 			'address' => 'required|max:255',
