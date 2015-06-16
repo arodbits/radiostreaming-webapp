@@ -2,12 +2,12 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Services\PromotionsService;
+use App\Services\EventService;
 use Illuminate\Http\Request;
-use App\Promotion;
+use App\Event;
 
 
-class PromotionController extends Controller {
+class EventController extends Controller {
 
 	public function __construct(){
 		$this->middleware('auth');
@@ -20,8 +20,9 @@ class PromotionController extends Controller {
 	 */
 	public function index()
 	{
-		$promotions = Promotion::paginate(10);
-		return view('promotions.list_promotions', ['promotions'=>$promotions]);
+		$events = Event::paginate(10);
+
+		return view('event.list_event', ['events'=>$events]);
 	}	
 
 	/**
@@ -31,7 +32,7 @@ class PromotionController extends Controller {
 	 */
 	public function create()
 	{
-		return view('promotions.create');
+		return view('event.create');
 	}
 
 	/**
@@ -39,17 +40,17 @@ class PromotionController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request, PromotionsService $promotions)
+	public function store(Request $request, EventService $event)
 	{
 		$data = $request->all();
-		$validator = $promotions->validate($data);
+		$validator = $event->validate($data);
 
 		if ($validator->fails()){
-			return \Redirect::to('promotions/create')->withInput()->withErrors($validator);
+			return \Redirect::to('events/create')->withInput()->withErrors($validator);
 		}
 		else{	
-			$promotions->save($data);
-			return \Redirect::to('promotions');
+			$event->save($data);
+			return \Redirect::to('events');
 		}
 	}
 
@@ -72,9 +73,9 @@ class PromotionController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$promotion = Promotion::find($id);
+		$event = Event::find($id);
 		
-		return view('promotions.edit_promotion', ['promotion'=>$promotion]);
+		return view('event.edit_event', ['event'=>$event]);
 	}
 
 	/**
@@ -83,18 +84,18 @@ class PromotionController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id, Request $request, PromotionsService $promotions)
+	public function update($id, Request $request, EventService $event)
 	{
 		$data = $request->all();
-		$validator = $promotions->validate($data);
+		$validator = $event->validate($data);
 
 		if ($validator->fails()){
-			return \Redirect::to("promotions/$id/edit")->withInput()->withErrors($validator);
+			return \Redirect::to("events/$id/edit")->withInput()->withErrors($validator);
 		}
 
 		else{	
-			if($promotions->update($id,$data))
-			return \Redirect::to("promotions");		
+			if($event->update($id,$data))
+			return \Redirect::to("events");		
 		}
 	}
 
@@ -106,9 +107,9 @@ class PromotionController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		$promotion = Promotion::find($id);
-		$promotion->delete();
-		return redirect('/promotions');
+		$event = Event::find($id);
+		$event->delete();
+		return redirect('/events');
 	}
 
 }

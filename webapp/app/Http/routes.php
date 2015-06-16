@@ -18,18 +18,18 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::resource('promotions','PromotionController');
+Route::resource('events','eventController');
 Route::resource('radio','RadioController');
 
 Route::post('api/access_token', function(){
 	return Response::json(Authorizer::issueAccessToken());
 });
 
-Route::get('api/promotions', ["before" =>'oauth', function(){
-	$promotions = App\Promotion::all();
-	$length = $promotions->count();
+Route::get('api/events', ["before" =>'oauth', function(){
+	$events = App\event::all();
+	$length = $events->count();
 
-	return Response::json(["promotions" => $promotions]);
+	return Response::json(["events" => $events]);
 }]);
 
 Route::get('api/radio/{id}', ["before" =>'oauth', function($id){

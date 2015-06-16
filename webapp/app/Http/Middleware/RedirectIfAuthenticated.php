@@ -35,7 +35,7 @@ class RedirectIfAuthenticated {
 	{
 		if ($this->auth->check())
 		{
-			return new RedirectResponse(url('/promotions'));
+			return new RedirectResponse(url('/events'));
 		}
 
 		return $next($request);
