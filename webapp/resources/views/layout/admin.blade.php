@@ -34,7 +34,7 @@
 				
 				<ul class="nav nav-stacked">
 					<li><a href="/radio/{{Auth::user()->radio->id}}"><i class="glyphicon glyphicon-flash"></i>My Radio</a></li>
-					<li><a href="/promotions"><i class="glyphicon glyphicon-link"></i>Promotions</a></li>
+					<li><a href="/events"><i class="glyphicon glyphicon-link"></i>Events</a></li>
 				</ul>
 				
 			</div><!-- /span-3 -->

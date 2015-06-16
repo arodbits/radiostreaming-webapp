@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Promotion extends Model {
+class Event extends Model {
 
 	protected $fillable = ['title', 'address', 'price', 'date', 'time', 'image_url'];
 

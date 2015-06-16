@@ -1,9 +1,9 @@
 @extends('app')
 @section('content')
 <div class="container">
-	<h3><i class="glyphicon glyphicon glyphicon-bullhorn"></i> New Promotion</h3>
+	<h3><i class="glyphicon glyphicon glyphicon-bullhorn"></i> New Event</h3>
 
-	<form method="POST" action="/promotions" enctype="multipart/form-data">
+	<form method="POST" action="/events" enctype="multipart/form-data">
 		@if (count($errors) > 0)
 		<div class="alert alert-danger">
 			<strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -17,7 +17,7 @@
 		<input type="hidden" name="_token" value={{csrf_token()}}>
 
 		<div class="form-group">
-			<label>Title: </label><input type="text" value="{{Input::old('title')}}" name="title" placeholder="Promotion Title" class="form-control">
+			<label>Title: </label><input type="text" value="{{Input::old('title')}}" name="title" placeholder="Event Title" class="form-control">
 		</div>
 		<div class="form-group">
 			<label>Address: </label><input type="address" value="{{Input::old('address')}}" name="address" placeholder="Address" class="form-control">
@@ -40,12 +40,12 @@
 		</div>
 
 		<div class="form-group">
-			<label>Promotion Image: </label></label><input class="form-control" type="file" name="image" >
+			<label>event Image: </label></label><input class="form-control" type="file" name="image" >
 		</div>
 
 		<div class="form-group">
 			<button type="submit" class="btn btn-success"> ADD </button>
-			<a href="/promotions" class="btn btn-danger">Cancel</a>
+			<a href="/events" class="btn btn-danger">Cancel</a>
 		</div>
 
 	</form>

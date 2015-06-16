@@ -1,13 +1,13 @@
 <?php
 namespace App\Services;
-use App\Promotion;
+use App\Event;
 
-class PromotionsService extends LaravelDataService {
+class EventService extends LaravelDataService {
 	
 	public function __construct(){
 		parent::__construct(new \App\Services\ImageService);
 
-		$this->model = new Promotion;
+		$this->model = new Event;
 
 		$this->rules = [
 			'title' => 'required|max:255',

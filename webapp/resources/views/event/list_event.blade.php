@@ -3,10 +3,10 @@
 
 <div class="row">
 	<div class="col-sm-9">
-		<h3><i class="glyphicon glyphicon-dashboard"></i> Promotions</h3> 
+		<h3><i class="glyphicon glyphicon-dashboard"></i> UPCOMING EVENT</h3> 
 	</div>
 	<div class="col-sm-3 add-new">
-		<a href="/promotions/create"><i class="glyphicon glyphicon-plus"></i> Add New</a>
+		<a href="/events/create"><i class="glyphicon glyphicon-plus"></i> Add New</a>
 	</div>
 	<hr>
 </div>
@@ -29,20 +29,20 @@
 		</tr>
 	</thead>
 	<tbody>
-		@foreach($promotions as $key=>$promotion)
-		<tr data-id="{{$promotion->id}}">
-			<td>{{$promotion->id}}</td>
-			<td>{{$promotion->title}}</td>
-			<td>{{$promotion->address}}</td>
-			<td>{{date('m/d/Y', strtotime($promotion->date))}}</td>
-			<td>{{date('h:i A', strtotime($promotion->time))}}</td>
-			<td>{{$promotion->price}}</td>
+		@foreach($events as $key=>$event)
+		<tr data-id="{{$event->id}}">
+			<td>{{$event->id}}</td>
+			<td>{{$event->title}}</td>
+			<td>{{$event->address}}</td>
+			<td>{{date('m/d/Y', strtotime($event->date))}}</td>
+			<td>{{date('h:i A', strtotime($event->time))}}</td>
+			<td>{{$event->price}}</td>
 			<td>
-				<a href="/promotions/{{$promotion->id}}/edit" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i>Edit</a> 
-				<form name="delete_form" action="promotions/{{$promotion->id}}" method="POST" style="display: inline">
+				<a href="/events/{{$event->id}}/edit" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i>Edit</a> 
+				<form name="delete_form" action="events/{{$event->id}}" method="POST" style="display: inline">
 					<input type="hidden" name="_method" value="DELETE">
 					<input type="hidden" name="_token" value="{{csrf_token()}}">
-					<button data-name="delete" type="submit" href="promotions" class="btn btn-danger"><i class="fa fa-times"></i>Delete</button>
+					<button data-name="delete" type="submit" href="events" class="btn btn-danger"><i class="fa fa-times"></i>Delete</button>
 				</form>
 			</td>
 		</tr>
@@ -51,7 +51,7 @@
 </table>
 </div>
 </div>
-{!!$promotions->render()!!}
+{!!$events->render()!!}
 @endsection
 
 @section('javascript')
