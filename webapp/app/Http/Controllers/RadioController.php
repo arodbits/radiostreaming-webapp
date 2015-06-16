@@ -80,7 +80,7 @@ class RadioController extends Controller {
 		$radio = $request->all();
 		$validator = $this->service->validate($radio);
 		if ($validator->fails()){
-			dd($validator->errors());
+			return \Redirect::to("radio/$id/edit")->withInput()->withErrors($validator);
 		}
 		else if ($this->service->update($id, $radio))
 			return redirect("radio/$id");

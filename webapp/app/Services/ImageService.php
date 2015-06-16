@@ -27,7 +27,8 @@ class ImageService{
 
 	/*Check if the image is of a valid Mime Type*/
 	protected function isMimeTypeValid($file, $validMimeTypes=array()){
-		$validMimeTypes==null ? $fileMimeType = $file->getMimeType() : $validMimeTypes;
+		
+		$validMimeTypes == null ? $fileMimeType = $file->getMimeType() : $validMimeTypes;
 		$validMimeTypes = ['image/jpeg', 'image/png'];
 		foreach($validMimeTypes as $mime){
 			if ($fileMimeType==$mime){

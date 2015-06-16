@@ -1,11 +1,14 @@
 <?php namespace App\Services;
 use App\Radio;
-
+use App\Services\ImageService;
 
 class RadioService extends LaravelDataService{
 
-	public function __construct(){
+	public function __construct(ImageService $imageService){
 		
+		//call super class' constructor
+		parent::__construct($imageService);
+
 		$this->model = new Radio;
 
 		$this->rules = [
@@ -38,8 +41,12 @@ class RadioService extends LaravelDataService{
 		'youtube' =>$data['youtube']
 		];
 		
-		if($imageUrl = $this->imageProcessor($data)){
-			$record['logo_url'] = $imageUrl;
+		if (isset($data["image"]))
+        {
+        	$file = $data["image"];
+			if($imageUrl = $this->imageProcessor($file)){
+				$record['logo_url'] = $imageUrl;
+			}
 		}
 		
 		return $record;

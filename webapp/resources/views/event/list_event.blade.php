@@ -3,7 +3,7 @@
 
 <div class="row">
 	<div class="col-sm-9">
-		<h3><i class="glyphicon glyphicon-dashboard"></i> UPCOMING EVENT</h3> 
+		<h3><i class="glyphicon glyphicon-dashboard"></i> EVENTS</h3> 
 	</div>
 	<div class="col-sm-3 add-new">
 		<a href="/events/create"><i class="glyphicon glyphicon-plus"></i> Add New</a>

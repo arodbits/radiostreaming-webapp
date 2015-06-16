@@ -1,9 +1,11 @@
 @extends('app')
+@section('return')
+<ul class="nav navbar-nav">
+  <li><a href="{{ url("/events") }}">Events</a></li>
+</ul>
+@endsection
 @section('content')
 <div class="container">
-
-    
-
 	<form method="POST" action="/events/{{$event->id}}" enctype="multipart/form-data">
 		@if (count($errors) > 0)
 		<div class="alert alert-danger">
