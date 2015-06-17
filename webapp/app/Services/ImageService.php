@@ -31,7 +31,7 @@ class ImageService{
 			if($this->isValid($file))
 			{
 				// If the File upload successfully...
-				if($this->fileUploader->upload($file, public_path().'/theme'))
+				if($this->fileUploader->upload($file))
 				{ 
 					return $file->getClientOriginalName();
 				}
