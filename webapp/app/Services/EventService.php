@@ -1,15 +1,15 @@
 <?php
 namespace App\Services;
 use App\Event;
-use \App\Services\ImageService;
+use App\Services\ImageService;
 
 class EventService extends LaravelDataService {
 	
-	public function __construct(ImageService $imageService){
+	public function __construct(ImageService $imageService, Event $event){
 
 		parent::__construct($imageService);
 
-		$this->model = new Event;
+		$this->model = $event;
 
 		$this->rules = [
 			'title' => 'required|max:255',

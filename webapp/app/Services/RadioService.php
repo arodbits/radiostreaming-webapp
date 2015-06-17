@@ -6,11 +6,11 @@ class RadioService extends LaravelDataService{
 	
 	protected $imageService;
 
-	public function __construct(ImageService $imageService){
+	public function __construct(ImageService $imageService, Radio $radio){
 		
 		$this->imageService = $imageService;
 
-		$this->model = new Radio;
+		$this->model = $radio;
 
 		$this->rules = [
 		'name' => 'required|max:60',

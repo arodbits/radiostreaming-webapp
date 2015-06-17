@@ -17,14 +17,6 @@ abstract class LaravelDataService implements LaravelDataContract{
 		return Validator::make($data, $this->rules);
 	}
 	
-	// Upload a new file
-	protected function upload($file)
-	{
-		$path = public_path() . '/uploads';
-		$filename= $file->getClientOriginalName();
-		$newFile = $file->move($path, $filename);
-		return $newFile;
-	}
 	// Save a new record
 	public function save($data)
 	{
