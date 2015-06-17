@@ -2,6 +2,7 @@
 use Validator;
 use App\Contracts\LaravelDataContract;
 use App\Services\ImageService;
+
 abstract class LaravelDataService implements LaravelDataContract{
 
 	protected $model;
@@ -15,26 +16,7 @@ abstract class LaravelDataService implements LaravelDataContract{
 	public function validate(array $data){
 		return Validator::make($data, $this->rules);
 	}
-	/**
-	 * [imageProcessor description]
-	 * @param  Array
-	 * @return String
-	 */
-	protected function imageProcessor($file=null){
-
-		if($file != null)
-		{
-			// If the image is valid...
-			if($this->imageService->isValid($file))
-			{
-				// If the File upload successfully...
-				if($this->upload($file))
-				{ 
-					return $file->getClientOriginalName();
-				}
-			}
-		}
-	}
+	
 	// Upload a new file
 	protected function upload($file)
 	{

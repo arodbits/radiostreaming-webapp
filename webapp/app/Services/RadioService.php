@@ -3,11 +3,12 @@ use App\Radio;
 use App\Services\ImageService;
 
 class RadioService extends LaravelDataService{
+	
+	protected $imageService;
 
 	public function __construct(ImageService $imageService){
 		
-		//call super class' constructor
-		parent::__construct($imageService);
+		$this->imageService = $imageService;
 
 		$this->model = new Radio;
 
@@ -44,7 +45,7 @@ class RadioService extends LaravelDataService{
 		if (isset($data["image"]))
         {
         	$file = $data["image"];
-			if($imageUrl = $this->imageProcessor($file)){
+			if($imageUrl = $this->imageService->process($file)){
 				$record['logo_url'] = $imageUrl;
 			}
 		}
