@@ -2,7 +2,7 @@
 
 interface FileUploaderContract{
 
-	public function upload($file);
+	public function upload($file, $path = NULL);
 
 }
 
