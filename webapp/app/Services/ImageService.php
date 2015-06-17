@@ -1,6 +1,13 @@
 <?php 
 namespace App\Services;
+use App\Services\LaravelFileUploader;
+
 class ImageService{
+	protected $fileUploader;
+
+	public function __construct(LaravelFileUploader $fileUploader){
+		$this->fileUploader = $fileUploader;
+	}
 
 	/**
 	 * Main method for image validation - NO RETUNING ERROR MESSAGE YET
@@ -13,6 +20,22 @@ class ImageService{
 		
 		if($validImageMime && $validImageSize){
 			return $file;
+		}
+	}
+
+	public function process($file=null){
+
+		if($file != null)
+		{
+			// If the image is valid...
+			if($this->isValid($file))
+			{
+				// If the File upload successfully...
+				if($this->fileUploader->upload($file))
+				{ 
+					return $file->getClientOriginalName();
+				}
+			}
 		}
 	}
 

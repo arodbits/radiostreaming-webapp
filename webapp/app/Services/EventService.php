@@ -1,11 +1,13 @@
 <?php
 namespace App\Services;
 use App\Event;
+use \App\Services\ImageService;
 
 class EventService extends LaravelDataService {
 	
-	public function __construct(){
-		parent::__construct(new \App\Services\ImageService);
+	public function __construct(ImageService $imageService){
+
+		parent::__construct($imageService);
 
 		$this->model = new Event;
 
@@ -34,7 +36,7 @@ class EventService extends LaravelDataService {
         if (isset($data["image"]))
         {
         	$file = $data["image"];
-			if($imageUrl = $this->imageProcessor($file)){
+			if($imageUrl = $this->imageService->process($file)){
 				$record['image_url'] = $imageUrl;
 			}
 		}
