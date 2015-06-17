@@ -1,16 +1,22 @@
 <?php namespace App\Services;
 use Validator;
 use App\Contracts\LaravelDataContract;
+use App\Services\ImageService;
 
 abstract class LaravelDataService implements LaravelDataContract{
 
 	protected $model;
 	protected $rules;
+	protected $imageService;
+
+	public function __construct(ImageService $imageService){
+		$this->imageService = $imageService;
+	}
 
 	public function validate(array $data){
 		return Validator::make($data, $this->rules);
 	}
-
+	
 	// Save a new record
 	public function save($data)
 	{
@@ -19,7 +25,6 @@ abstract class LaravelDataService implements LaravelDataContract{
 		// Call to the corresponding Laravel Model. New entry using the create method. 
 		return $this->model->create($readyData);
 	}
-	
 	//  Update a record
 	public function update($id,$data)
 	{
