@@ -1,18 +1,13 @@
 <?php namespace App\Services;
 use Validator;
 use App\Contracts\LaravelDataContract;
-use App\Services\ImageService;
+
 
 abstract class LaravelDataService implements LaravelDataContract{
 
 	protected $model;
 	protected $rules;
-	protected $imageService;
-
-	public function __construct(ImageService $imageService){
-		$this->imageService = $imageService;
-	}
-
+	
 	public function validate(array $data){
 		return Validator::make($data, $this->rules);
 	}

@@ -5,10 +5,11 @@ use App\Services\ImageService;
 
 class EventService extends LaravelDataService {
 	
+	protected $imageService;
+
 	public function __construct(ImageService $imageService, Event $event){
-
-		parent::__construct($imageService);
-
+		
+		$this->imageService = $imageService;
 		$this->model = $event;
 
 		$this->rules = [
