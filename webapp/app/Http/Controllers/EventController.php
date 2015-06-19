@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -7,9 +9,11 @@ use Illuminate\Http\Request;
 use App\Event;
 
 
-class EventController extends Controller {
+class EventController extends Controller
+{
 
-	public function __construct(){
+	public function __construct()
+	{
 		$this->middleware('auth');
 	}
 
@@ -21,9 +25,8 @@ class EventController extends Controller {
 	public function index()
 	{
 		$events = Event::paginate(10);
-
 		return view('event.list_event', ['events'=>$events]);
-	}	
+	}
 
 	/**
 	 * Show the form for creating a new resource.
@@ -45,10 +48,12 @@ class EventController extends Controller {
 		$data = $request->all();
 		$validator = $event->validate($data);
 
-		if ($validator->fails()){
+		if ($validator->fails())
+		{
 			return \Redirect::to('events/create')->withInput()->withErrors($validator);
 		}
-		else{	
+		else
+		{
 			$event->save($data);
 			return \Redirect::to('events');
 		}
@@ -62,7 +67,7 @@ class EventController extends Controller {
 	 */
 	public function show($id)
 	{
-		
+
 	}
 
 	/**
@@ -74,7 +79,6 @@ class EventController extends Controller {
 	public function edit($id)
 	{
 		$event = Event::find($id);
-		
 		return view('event.edit_event', ['event'=>$event]);
 	}
 
@@ -89,13 +93,15 @@ class EventController extends Controller {
 		$data = $request->all();
 		$validator = $event->validate($data);
 
-		if ($validator->fails()){
+		if ($validator->fails())
+		{
 			return \Redirect::to("events/$id/edit")->withInput()->withErrors($validator);
 		}
 
-		else{	
+		else
+		{
 			if($event->update($id,$data))
-			return \Redirect::to("events");		
+			return \Redirect::to("events");
 		}
 	}
 

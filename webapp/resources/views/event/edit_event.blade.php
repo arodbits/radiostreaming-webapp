@@ -46,18 +46,18 @@
 		<div class="row">
 			<div class="col-md-3">
 				<div>
-					<img class="img-responsive" src="{{'/uploads/' . $event->image_url}}">
-				</div>		
+					<img class="img-responsive" src="{{$event->image_url}}">
+				</div>
 			</div>
 			<div class="col-md-9">
 				<div class="form-group ">
-					<label>Change Image: </label></label><input class="form-control" type="file" name="image" >
+					<label>Change Image: (Max 12MB) </label></label><input class="form-control" type="file" name="image" >
 				</div>
 				<hr>
 				<div class="form-group">
 					<button class="btn btn-success" type="submit"><i class="fa fa-check "></i> SAVE CHANGES </button>
 					<a class="btn btn-danger" href="/events"><i class="fa fa-close "></i> CANCEL</a>
-				</div>	
+				</div>
 			</div>
 
 		</div>
