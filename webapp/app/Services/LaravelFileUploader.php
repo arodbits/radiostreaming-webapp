@@ -8,15 +8,16 @@ class LaravelFileUploader implements FileUploaderContract
 {
 	protected $errors = array();
 
-	// Upload a new file
+	// Upload a new file. Base directory: /public/
 	public function upload($file, $path = null)
 	{
-		$path == null ? $path = public_path() . '/uploads' :  $path;
+		$path ?: $path = DIRECTORY_SEPARATOR . 'uploads';
+		$absolutePath = public_path() . $path ;
 		$filename= $file->getClientOriginalName();
-
-		try{
-			$newFile = $file->move($path, $filename);
-			return $newFile;
+		try
+		{
+			$file->move($absolutePath, $filename);
+			return $path . DIRECTORY_SEPARATOR . $filename . PHP_EOL;
 		}
 		catch(\Exception $e)
 		{
