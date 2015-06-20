@@ -1,28 +1,29 @@
 <?php
 namespace App\Services;
+
 use App\Event;
-use App\Services\ImageService;
+use App\Contracts\FileUploaderContract;
 
 class EventService extends LaravelDataService {
-	
-	protected $imageService;
 
-	public function __construct(ImageService $imageService, Event $event){
-		
-		$this->imageService = $imageService;
+	protected $fileUploader;
+
+	public function __construct(FileUploaderContract $fileUploader, Event $event){
+
+		$this->fileUploader = $fileUploader;
 		$this->model = $event;
 
 		$this->rules = [
 			'title' => 'required|max:255',
 			'address' => 'required|max:255',
-			'image' => 'max:500',
+			'image' => 'max:12000 | mimes:jpeg,bmp,png',
 			'date' => 'required|date',
 			'time' => array('regex:/[0-9]:[0-5][0-9]\s?(AM|PM|am|pm)|[0-1][0-2]:[0-5][0-9]\s?(AM|am|pm|PM)/', 'required'), // 12 hours format.
 			'price' => array('regex:/[0-9]{1,20}.?[0-9]{0,20}/') //Decimal/Int values
 		];
 	}
-	
-	// Compose the record 
+
+	// Compose the record
 	public function recordBuilder($data)
 	{
 
@@ -32,18 +33,19 @@ class EventService extends LaravelDataService {
 			'date' => date('Y-m-d', strtotime($data['date'])),
 			'time' => date('H:i', strtotime($data['time'])),
 			'price' => $data['price']
-		];	
+		];
 
         if (isset($data["image"]))
         {
         	$file = $data["image"];
-			if($imageUrl = $this->imageService->process($file)){
+        	if($this->fileUploader->upload($file))
+        	{
+				$imageUrl = '/uploads/' . $file->getClientOriginalName() . PHP_EOL;
 				$record['image_url'] = $imageUrl;
 			}
 		}
-		
+
 		return $record;
 	}
-
 }
 ?>

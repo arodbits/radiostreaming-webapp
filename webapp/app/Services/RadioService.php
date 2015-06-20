@@ -1,14 +1,17 @@
-<?php namespace App\Services;
+<?php
+
+namespace App\Services;
+
 use App\Radio;
-use App\Services\ImageService;
+use App\Contracts\FileUploaderContract;
 
 class RadioService extends LaravelDataService{
-	
-	protected $imageService;
 
-	public function __construct(ImageService $imageService, Radio $radio){
-		
-		$this->imageService = $imageService;
+	protected $fileUploader;
+
+	public function __construct(FileUploaderContract $fileUploader, Radio $radio){
+
+		$this->fileUploader = $fileUploader;
 
 		$this->model = $radio;
 
@@ -41,15 +44,14 @@ class RadioService extends LaravelDataService{
 		'instagram' =>$data['instagram'],
 		'youtube' =>$data['youtube']
 		];
-		
+
 		if (isset($data["image"]))
         {
         	$file = $data["image"];
-			if($imageUrl = $this->imageService->process($file)){
-				$record['logo_url'] = $imageUrl;
-			}
+        	$imageUrl = '/uploads/' . $file->getClientOriginalName() . PHP_EOL;
+			$record['logo_url'] = $imageUrl;
 		}
-		
+
 		return $record;
 	}
 }

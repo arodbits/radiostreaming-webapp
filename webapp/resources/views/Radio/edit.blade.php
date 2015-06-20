@@ -22,7 +22,7 @@
 
         <div class="col-sm-3">
           <div class="row">
-            <img class="img-rounded img-responsive" src="/uploads/{{$radio->logo_url}}">
+            <img class="img-rounded img-responsive" src="{{$radio->logo_url}}">
           </div>
           <div class="row">
             <div>
