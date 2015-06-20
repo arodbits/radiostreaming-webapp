@@ -2,8 +2,8 @@
 
 namespace App\Contracts;
 
-interface FileUploaderContract{
-
+interface FileUploaderContract
+{
 	public function upload($file, $path = NULL);
 }
 ?>

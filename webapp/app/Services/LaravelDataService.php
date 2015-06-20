@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services;
 
 use Validator;
@@ -18,7 +19,6 @@ abstract class LaravelDataService implements LaravelDataContract
 	// Save a new record
 	public function save($data)
 	{
-		//Construct the data record. How can we improve it?
 		$readyData = $this->recordBuilder($data);
 		// Call to the corresponding Laravel Model. New entry using the create method.
 		return $this->model->create($readyData);

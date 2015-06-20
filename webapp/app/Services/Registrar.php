@@ -1,4 +1,6 @@
-<?php namespace App\Services;
+<?php
+
+namespace App\Services;
 
 use App\User;
 use Validator;
@@ -35,5 +37,4 @@ class Registrar implements RegistrarContract {
 			'password' => bcrypt($data['password']),
 		]);
 	}
-
 }

@@ -1,14 +1,17 @@
-<?php namespace App;
+<?php
 
-use Illuminate\Database\Eloquent\Model; 
+namespace App;
 
-class Radio extends Model{
+use Illuminate\Database\Eloquent\Model;
+
+class Radio extends Model
+{
 
 	protected $fillable = ['name',
-						   'email', 
-						   'telephone', 
-						   'address', 
-						   'logo_url', 
+						   'email',
+						   'telephone',
+						   'address',
+						   'logo_url',
 						   'slogan',
 						   'twitter',
 						   'facebook',
@@ -23,7 +26,5 @@ class Radio extends Model{
 	public function user(){
 		return $this->hasOne('App\User');
 	}
-
 }
-
 ?>

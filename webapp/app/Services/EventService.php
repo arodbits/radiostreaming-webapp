@@ -1,15 +1,16 @@
 <?php
+
 namespace App\Services;
 
 use App\Event;
 use App\Contracts\FileUploaderContract;
 
-class EventService extends LaravelDataService {
-
+class EventService extends LaravelDataService
+{
 	protected $fileUploader;
 
-	public function __construct(FileUploaderContract $fileUploader, Event $event){
-
+	public function __construct(FileUploaderContract $fileUploader, Event $event)
+	{
 		$this->fileUploader = $fileUploader;
 		$this->model = $event;
 
@@ -26,7 +27,6 @@ class EventService extends LaravelDataService {
 	// Compose the record
 	public function recordBuilder($data)
 	{
-
 		$record = [
 			'title' => $data['title'],
 			'address' => $data['address'],
@@ -43,7 +43,6 @@ class EventService extends LaravelDataService {
 				$record['image_url'] = $imageUrl;
 			}
 		}
-
 		return $record;
 	}
 }

@@ -5,11 +5,13 @@ namespace App\Services;
 use App\Radio;
 use App\Contracts\FileUploaderContract;
 
-class RadioService extends LaravelDataService{
+class RadioService extends LaravelDataService
+{
 
 	protected $fileUploader;
 
-	public function __construct(FileUploaderContract $fileUploader, Radio $radio){
+	public function __construct(FileUploaderContract $fileUploader, Radio $radio)
+	{
 
 		$this->fileUploader = $fileUploader;
 
@@ -30,7 +32,8 @@ class RadioService extends LaravelDataService{
 		];
 	}
 
-	public function recordBuilder($data){
+	public function recordBuilder($data)
+	{
 
 		$record = [
 		'name' => $data['name'],
@@ -57,5 +60,4 @@ class RadioService extends LaravelDataService{
 		return $record;
 	}
 }
-
 ?>

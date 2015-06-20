@@ -1,4 +1,6 @@
-<?php namespace App;
+<?php
+
+namespace App;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -6,7 +8,9 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use App\User;
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
+
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract 
+{
 
 	use Authenticatable, CanResetPassword;
 
@@ -31,8 +35,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
-	public function radio(){
+	public function radio()
+	{
 		return $this->belongsTo('App\Radio');
 	}
-
 }

@@ -1,9 +1,11 @@
-<?php namespace App\Providers;
+<?php
+
+namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class FileUploaderServiceProvider extends ServiceProvider {
-
+class FileUploaderServiceProvider extends ServiceProvider
+{
 	protected $defer = true;
 
 	/**

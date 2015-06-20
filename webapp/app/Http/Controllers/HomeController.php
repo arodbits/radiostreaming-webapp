@@ -1,7 +1,9 @@
-<?php namespace App\Http\Controllers;
+<?php
 
-class HomeController extends Controller {
+namespace App\Http\Controllers;
 
+class HomeController extends Controller 
+{
 	/*
 	|--------------------------------------------------------------------------
 	| Home Controller

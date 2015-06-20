@@ -1,9 +1,9 @@
-<?php namespace App\Contracts;
+<?php
 
-Interface LaravelDataContract {
+namespace App\Contracts;
 
+Interface LaravelDataContract
+{
 	public function recordBuilder($data);
-
 }
-
 ?>

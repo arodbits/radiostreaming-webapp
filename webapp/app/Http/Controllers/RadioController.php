@@ -1,15 +1,20 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Radio;
 use Illuminate\Http\Request;
 use App\Services\RadioService;
-class RadioController extends Controller {
-	
+
+class RadioController extends Controller
+{
+
 	protected $service;
 
-	public function __construct(RadioService $service){
+	public function __construct(RadioService $service)
+	{
 		$this->middleware('auth');
 		$this->service = $service;
 	}
@@ -79,7 +84,8 @@ class RadioController extends Controller {
 	{
 		$radio = $request->all();
 		$validator = $this->service->validate($radio);
-		if ($validator->fails()){
+		if ($validator->fails())
+		{
 			return \Redirect::to("radio/$id/edit")->withInput()->withErrors($validator);
 		}
 		else if ($this->service->update($id, $radio))
