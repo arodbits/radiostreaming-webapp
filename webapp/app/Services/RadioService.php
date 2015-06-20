@@ -48,8 +48,10 @@ class RadioService extends LaravelDataService{
 		if (isset($data["image"]))
         {
         	$file = $data["image"];
-        	$imageUrl = '/uploads/' . $file->getClientOriginalName() . PHP_EOL;
-			$record['logo_url'] = $imageUrl;
+        	if($imageUrl = $this->fileUploader->upload($file))
+        	{
+				$record['logo_url'] = $imageUrl;
+			}
 		}
 
 		return $record;
