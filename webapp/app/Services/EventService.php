@@ -38,9 +38,8 @@ class EventService extends LaravelDataService {
         if (isset($data["image"]))
         {
         	$file = $data["image"];
-        	if($this->fileUploader->upload($file))
+        	if($imageUrl = $this->fileUploader->upload($file))
         	{
-				$imageUrl = '/uploads/' . $file->getClientOriginalName() . PHP_EOL;
 				$record['image_url'] = $imageUrl;
 			}
 		}
