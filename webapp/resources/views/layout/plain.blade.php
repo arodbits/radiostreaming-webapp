@@ -12,6 +12,7 @@
 				</button>
 				<a class="navbar-brand page-scroll" href="/">Station Connect</a>
 			</div>
+			@yield('menu')
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
