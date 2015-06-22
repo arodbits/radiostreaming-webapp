@@ -49,6 +49,7 @@ class AuthController extends Controller {
 
 		if ($this->auth->attempt($credentials, $request->has('remember')))
 		{
+			$this->event->fire(new \App\Events\UserWasRegistered); // Update last_login record
 			return redirect()->intended($this->redirectPath());
 		}
 
