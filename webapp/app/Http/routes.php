@@ -28,7 +28,6 @@ Route::post('api/access_token', function(){
 Route::get('api/events', ["before" =>'oauth', function(){
 	$events = App\event::all();
 	$length = $events->count();
-
 	return Response::json(["events" => $events]);
 }]);
 

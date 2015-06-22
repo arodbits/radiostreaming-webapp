@@ -36,5 +36,7 @@ class Registrar implements RegistrarContract {
 			'email' => $data['email'],
 			'password' => bcrypt($data['password']),
 		]);
+
+		//Fire the UserWasRegistered event.
 	}
 }

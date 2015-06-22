@@ -80,7 +80,6 @@ return [
            'class'                 => 'League\OAuth2\Server\Grant\ClientCredentialsGrant',
            'access_token_ttl'      => 3600,
        ]
-       
     ],
 
     /*
