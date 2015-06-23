@@ -43,21 +43,25 @@ class AuthController extends Controller {
 	{
 		$this->validate($request, [
 			'email' => 'required|email', 'password' => 'required',
-		]);
+			]);
 
 		$credentials = $request->only('email', 'password');
 
 		if ($this->auth->attempt($credentials, $request->has('remember')))
 		{
+			\Mail::send('emails.welcome', ['key' => 'value'], function($message)
+			{
+				$message->to('anthonyrodriguez.itt@gmail.com', 'John Smith')->subject('Welcome!');
+			});
 			$this->event->fire(new \App\Events\UserWasRegistered); // Update last_login record
 			return redirect()->intended($this->redirectPath());
 		}
 
 		return redirect($this->loginPath())
-					->withInput($request->only('email', 'remember'))
-					->withErrors([
-						'email' => $this->getFailedLoginMessage(),
-					]);
+		->withInput($request->only('email', 'remember'))
+		->withErrors([
+			'email' => $this->getFailedLoginMessage(),
+			]);
 	}
 
 }
