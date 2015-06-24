@@ -25,6 +25,7 @@
 	<hr>
 	<p>Get a customized App for your Radio Station. Android or iOS? We got you covered! Manage the content shown in your app using our Admin Control Panel from your computer. 
 	</p>
+	<a href="auth/register" class="btn btn-default btn-xl">Get Started!</a>
 @endsection
 @section('sections')
 	<section id="contact">
