@@ -39,29 +39,23 @@ class AuthController extends Controller {
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
-	public function postLogin(Request $request, MailContract $mail)
+	public function postRegister(Request $request)
 	{
-		$this->validate($request, [
-			'email' => 'required|email', 'password' => 'required',
-			]);
+		$validator = $this->registrar->validator($request->all());
 
-		$credentials = $request->only('email', 'password');
-
-		if ($this->auth->attempt($credentials, $request->has('remember')))
+		if ($validator->fails())
 		{
-			$mail->send('emails.welcome', ['key' => 'value'], function($message)
-			{
-				$message->to('anthonyrodriguez.itt@gmail.com', 'John Smith')->subject('Welcome!');
-			});
-			$this->event->fire(new \App\Events\UserWasRegistered); 
-			return redirect()->intended($this->redirectPath());
+			$this->throwValidationException(
+				$request, $validator
+			);
 		}
 
-		return redirect($this->loginPath())
-		->withInput($request->only('email', 'remember'))
-		->withErrors([
-			'email' => $this->getFailedLoginMessage(),
-			]);
+		$this->auth->login($this->registrar->create($request->all()));
+		//Fire the userWasRegistered event.
+		// App\Events\UserWasRegistered
+		$this->event->fire(new \App\Events\UserWasRegistered($this->auth->user()));
+
+		return redirect($this->redirectPath());
 	}
 
 }
