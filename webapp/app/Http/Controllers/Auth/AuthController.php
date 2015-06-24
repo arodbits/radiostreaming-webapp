@@ -39,7 +39,7 @@ class AuthController extends Controller {
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
-	public function postLogin(Request $request)
+	public function postLogin(Request $request, MailContract $mail)
 	{
 		$this->validate($request, [
 			'email' => 'required|email', 'password' => 'required',
@@ -49,11 +49,11 @@ class AuthController extends Controller {
 
 		if ($this->auth->attempt($credentials, $request->has('remember')))
 		{
-			\Mail::send('emails.welcome', ['key' => 'value'], function($message)
+			$mail->send('emails.welcome', ['key' => 'value'], function($message)
 			{
 				$message->to('anthonyrodriguez.itt@gmail.com', 'John Smith')->subject('Welcome!');
 			});
-			$this->event->fire(new \App\Events\UserWasRegistered); // Update last_login record
+			$this->event->fire(new \App\Events\UserWasRegistered); 
 			return redirect()->intended($this->redirectPath());
 		}
 
