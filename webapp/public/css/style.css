@@ -32,3 +32,9 @@
 	background: #624E53;
 }
 /*End - Login Rules*/
+
+.btn-join{
+	background-color: #F9604C;
+	color: white;
+	border-radius: 5px;
+}
