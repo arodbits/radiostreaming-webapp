@@ -61,9 +61,10 @@ footer .nav>li>a:hover {
     background-size: cover;
 }
 .login-form-bg{
-	background-color: rgba(190, 190, 190, 0.5);
+	
 	border-radius: 10px;
 	padding: 30px;
+	box-shadow: 5px 5px 10px 3px #ccc;
 }
 .login-primary{
 	background: #574123;
