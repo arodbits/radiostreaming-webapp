@@ -1,67 +1,26 @@
-.nav-pills > li.active > a,
-.nav-pills > li.active > a:hover,
-.nav-pills > li.active > a:focus {
-  color: #ffffff;
-  background-color: #00aa20;
-}
 .full-centered{
 	position: relative;
 	width: 100%;
-    padding: 20px 15px;
-    text-align: center;
+	text-align: center;
+	margin: 4em auto 0;
 }
+/*End - Center Rules*/
+/*Change navbar background color*/
+.navbar-default{
+	background-color: #E6F0F0;
+}
+/*Change brand color*/
+.navbar-default .navbar-header .navbar-brand {
+	color: #f05f40;
+}
+/*Change link colors in navbar*/
+.navbar-default .nav > li>a,
+.navbar-default .nav>li>a:focus {
+	color: #41464A;
+}
+/*End - Nav Rules*/
 
-footer .nav>li>a {
-    padding: 3px;
-    color: #f44d3c;
-}
-
-footer .nav>li>a:hover {
-    background-color:transparent;
-	color:#fff;
-}
-
-.navbar-trans {
-	background-color:#2b2b2b;
-    color:#cdcdcd;
-    border-width:0;
-}
-
-.navbar-trans .navbar-brand, .navbar-trans >.container-fluid .navbar-brand {
-    padding: 14px;
-    color:#f44d3c;
-}
-
-.navbar-trans li>a:focus,.navbar-trans li.active {
-	background-color:#f44d3c;
-	color:#333;
-}
-
-.navbar-trans li>a:hover {
-	background-color:#f44d3c;
-	color:#fff;
-	opacity:0.5;
-}
-
-.navbar-trans a{
-    color:#cdcdcd;
-    letter-spacing:1px;
-}
-
-.navbar-trans .form-control:focus {
-	border-color: #eee;
-	outline: 0;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(100,100,100,0.6);
-	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(100,100,100,0.6);
-}
-/*Login*/
-.login-body{
-    background-image: url('../images/loginbg2.jpg');
-    height:100%;
-    background-size: cover;
-}
 .login-form-bg{
-	
 	border-radius: 10px;
 	padding: 30px;
 	box-shadow: 5px 5px 10px 3px #ccc;
@@ -72,3 +31,4 @@ footer .nav>li>a:hover {
 .login-danger{
 	background: #624E53;
 }
+/*End - Login Rules*/
