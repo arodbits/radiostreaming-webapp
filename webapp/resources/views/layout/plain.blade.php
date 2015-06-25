@@ -13,8 +13,8 @@
       <a class="navbar-brand" href="#">STATION CONNECT</a>
     </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="auth/login">Log In</a></li>
-        <li><a href="auth/register" class="btn-join">Get Started</a></li>
+        <li><a href="/auth/login">Log In</a></li>
+        <li class="active"><a href="/auth/register">Get Started</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
