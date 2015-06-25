@@ -5,10 +5,6 @@
 @section('content')
 <div class="container">
 	<div class="row">
-		<ul class="nav nav-pills">
-			<li role="presentation"><a href="/">Home</a></li>
-			<li role="presentation"><a href="/auth/login">Login</a></li>
-		</ul>
 		<div class="col-md-8 col-md-offset-2">
 			@if (count($errors) > 0)
 			<div class="alert alert-danger">
