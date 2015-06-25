@@ -21,11 +21,11 @@
 					<form class="multi-form" role="form" method="POST" action="{{ url('/auth/register') }}">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<ul class="progressbar">
-							<li class="active">Your profile</li>
-							<li>Second Form</li>
+							<li class="active">User profile</li>
+							<li>Radio Station</li>
 						</ul>
 						<fieldset>
-							<h2 class="fs-title">Your profile</h1>
+							<h2 class="fs-title">User profile</h1>
 							<h3 class="fs-description">Complete the following information</h2>
 							<div class="form-group">
 								<div class="col-md-12">
@@ -56,26 +56,21 @@
 							</div>
 						</fieldset>
 						<fieldset>
-							<h2 class="fs-title">Second Form</h1>
-							<h3 class="fs-description">Description about this form.</h2>
+							<h2 class="fs-title">Radio Station</h1>
+							<h3 class="fs-description">Tell us about your Radio Station</h2>
 							<div class="form-group">
 								<div class="col-md-12">
-									<input type="text" class="form-control" placeholder="Name" name="name" value="{{ old('name') }}">
+									<input type="text" class="form-control" placeholder="Name of Radio Station" name="name_radio" value="{{ old('name_radio') }}">
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-md-12">
-									<input type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}">
+									<input type="text" class="form-control" name="phone" placeholder="Phone" value="{{ old('phone') }}">
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-md-12">
-									<input type="password" class="form-control" placeholder="Password" name="password">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-12">
-									<input type="password" class="form-control" placeholder="Confirm Password" name="password_confirmation">
+									<input type="text" class="form-control" placeholder="Address" name="address" value="{{ old('address') }}">
 								</div>
 							</div>
 							<div class="form-group">
