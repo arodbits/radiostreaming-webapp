@@ -3,8 +3,12 @@
 <link rel="stylesheet" href="{{asset('multiforms/css/style.css')}}"/>
 @endsection
 @section('content')
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
+		<ul class="nav nav-pills">
+			<li role="presentation"><a href="/">Home</a></li>
+			<li role="presentation"><a href="/auth/login">Login</a></li>
+		</ul>
 		<div class="col-md-8 col-md-offset-2">
 			@if (count($errors) > 0)
 			<div class="alert alert-danger">
@@ -18,6 +22,7 @@
 			@endif
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
+					<h1 class="text-center">Getting Started</h1>
 					<form class="multi-form" role="form" method="POST" action="{{ url('/auth/register') }}">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<ul class="progressbar">

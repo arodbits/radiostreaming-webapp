@@ -1,4 +1,9 @@
-
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  color: #ffffff;
+  background-color: #00aa20;
+}
 .full-centered{
 	position: relative;
 	width: 100%;
