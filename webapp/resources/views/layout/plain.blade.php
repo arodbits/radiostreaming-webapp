@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">STATION CONNECT</a>
+      <a class="navbar-brand" href="/">STATION CONNECT</a>
     </div>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/auth/login">Log In</a></li>
@@ -21,5 +21,6 @@
 </nav>
 	@yield('content')
 </body>
+<script type="text/javascript" src=""></script>
 @yield('javascript')
 </html>
