@@ -13,14 +13,15 @@
       <a class="navbar-brand" href="/">STATION CONNECT</a>
     </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/auth/login">Log In</a></li>
-        <li class="active"><a href="/auth/register">Get Started</a></li>
+        <li class="{{MenuHelper::isActive('auth/login')}}"><a href="/auth/login">Log In</a></li>
+        <li class="{{MenuHelper::isActive('auth/register')}}"><a href="/auth/register">Get Started</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 	@yield('content')
 </body>
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="/theme/startbootstrap-creative/js/jquery.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 @yield('javascript')
 </html>

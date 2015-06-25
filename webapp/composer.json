@@ -15,7 +15,8 @@
 	},
 	"autoload": {
 		"classmap": [
-			"database"
+			"database",
+			"app/helpers/MenuHelper.php"
 		],
 		"psr-4": {
 			"App\\": "app/"

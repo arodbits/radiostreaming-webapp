@@ -43,7 +43,6 @@ Route::get('api/radio/{id}', ["before" =>'oauth', function($id){
 Route::get('test', function(){
 
 	dd($app->environment());
-    
     //
 });
 
