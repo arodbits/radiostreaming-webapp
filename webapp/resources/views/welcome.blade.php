@@ -21,9 +21,9 @@
 			<!-- /.navbar-collapse -->
 @endsection
 @section('content')
-	<h1>Custom Player For your Radio Station</h1>
+	<h1>Mobile Audio Player APP for your Radio Station</h1>
 	<hr>
-	<p>Get a customized App for your Radio Station. Android or iOS? We got you covered! Manage the content shown in your app using our Admin Control Panel from your computer. 
+	<p>Android or iOS? We got you covered! Manage the content shown in your Audio Player APP using your own personalized Admin Control Panel.
 	</p>
 	<a href="auth/register" class="btn btn-default btn-xl">Get Started!</a>
 @endsection
@@ -34,7 +34,7 @@
 				<div class="col-lg-8 col-lg-offset-2 text-center">
 					<h2 class="section-heading">Let's Get In Touch!</h2>
 					<hr class="primary">
-					<p>Ready to start your next CUSTOM RADIO PLAYER for your Station with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
+					<p>Ready to get your Radio Station to a higher level? That's great! Give us a call or send us an email, and we'll get back to you!</p>
 				</div>
 				<div class="col-lg-4 col-lg-offset-2 text-center">
 					<i class="fa fa-phone fa-3x wow bounceIn"></i>
