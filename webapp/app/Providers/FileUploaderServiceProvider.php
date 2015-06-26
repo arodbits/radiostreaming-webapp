@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 
 class FileUploaderServiceProvider extends ServiceProvider
 {
-	protected $defer = true;
+	//protected $defer = true;
 
 	/**
 	 * Bootstrap the application services.
