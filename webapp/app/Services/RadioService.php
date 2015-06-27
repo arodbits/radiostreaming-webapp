@@ -22,7 +22,7 @@ class RadioService extends LaravelDataService
 		'radio_address' => 'max:60',
 		'radio_slogan' => 'max:255',
 		'radio_logo' => 'max:500',
-		'radio_email' =>'max:255|email|required',
+		'radio_email' =>'max:255|email',
 		'radio_phone' => 'max:14',
 		'radio_twitter' =>'max:255',
 		'radio_facebook' =>'max:255',
