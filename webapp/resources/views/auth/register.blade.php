@@ -30,22 +30,22 @@
 							<h3 class="fs-description">Complete the following information</h2>
 							<div class="form-group">
 								<div class="col-md-12">
-									<input type="text" class="form-control" placeholder="Name" name="name" value="{{ old('name') }}">
+									<input type="text" class="form-control" placeholder="Name" name="user_name" value="{{ old('user_name') }}">
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-md-12">
-									<input type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}">
+									<input type="email" class="form-control" name="user_email" placeholder="Email" value="{{ old('user_email') }}">
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-md-12">
-									<input type="password" class="form-control" placeholder="Password" name="password">
+									<input type="password" class="form-control" placeholder="Password" name="user_password">
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-md-12">
-									<input type="password" class="form-control" placeholder="Confirm Password" name="password_confirmation">
+									<input type="password" class="form-control" placeholder="Confirm Password" name="user_password_confirmation">
 								</div>
 							</div>
 							<div class="form-group">
@@ -61,17 +61,17 @@
 							<h3 class="fs-description">Tell us about your Radio Station</h2>
 							<div class="form-group">
 								<div class="col-md-12">
-									<input type="text" class="form-control" placeholder="Name of Radio Station" name="name_radio" value="{{ old('name_radio') }}">
+									<input type="text" class="form-control" placeholder="Name of Radio Station" name="radio_name" value="{{ old('radio_name') }}">
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-md-12">
-									<input type="text" class="form-control" name="phone" placeholder="Phone" value="{{ old('phone') }}">
+									<input type="text" class="form-control" name="radio_phone" placeholder="Phone" value="{{ old('radio_phone') }}">
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-md-12">
-									<input type="text" class="form-control" placeholder="Address" name="address" value="{{ old('address') }}">
+									<input type="text" class="form-control" placeholder="Address" name="radio_address" value="{{ old('radio_address') }}">
 								</div>
 							</div>
 							<div class="form-group">

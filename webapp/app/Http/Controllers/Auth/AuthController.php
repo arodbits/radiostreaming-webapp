@@ -2,10 +2,10 @@
 
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
-use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Events\Dispatcher;
+use App\Services\SubscriptionService;
 
 class AuthController extends Controller {
 
@@ -21,9 +21,9 @@ class AuthController extends Controller {
 	*/
 	protected $redirectTo = '/events';
 	protected $event;
+	protected $subscription;
 
 	use AuthenticatesAndRegistersUsers;
-
 	/**
 	 * Create a new authentication controller instance.
 	 *
@@ -31,27 +31,27 @@ class AuthController extends Controller {
 	 * @param  \Illuminate\Contracts\Auth\Registrar  $registrar
 	 * @return void
 	 */
-	public function __construct(Guard $auth, Registrar $registrar, Dispatcher $event)
+	public function __construct(Guard $auth, Dispatcher $event, SubscriptionService $subscription)
 	{
+		$this->subscription = $subscription;
 		$this->auth = $auth;
 		$this->event = $event;
-		$this->registrar = $registrar;
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
 	public function postRegister(Request $request)
 	{
-		$validator = $this->registrar->validator($request->all());
+		$data = $request->all();
 
-		if ($validator->fails())
-		{
-			$this->throwValidationException(
-				$request, $validator
-			);
+		$validation = $this->subscription->validate($data);
+        if ($validation->fails()){
+			return redirect($request->path())->withErrors($validation)->withInput();
 		}
 
-		$this->auth->login($this->registrar->create($request->all()));
-		//Fire the userWasRegistered event.
+		$user = $this->subscription->save($data);
+
+		$this->auth->login($user);
+		//Fire the userWasRegistered event
 		// App\Events\UserWasRegistered
 		$this->event->fire(new \App\Events\UserWasRegistered($this->auth->user()));
 
