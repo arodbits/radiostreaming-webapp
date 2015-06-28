@@ -18,17 +18,17 @@ class RadioService extends LaravelDataService
 		$this->model = $radio;
 
 		$this->rules = [
-		'radio_name' => 'required|max:60',
-		'radio_address' => 'max:60',
-		'radio_slogan' => 'max:255',
-		'radio_logo' => 'max:500',
-		'radio_email' =>'max:255|email',
-		'radio_phone' => 'max:14',
-		'radio_twitter' =>'max:255',
-		'radio_facebook' =>'max:255',
-		'radio_instagram' => 'max:255',
-		'radio_streaming_url' =>'max:255',
-		'radio_youtube' =>'max:255'
+		'name' => 'required|max:60',
+		'address' => 'max:60',
+		'slogan' => 'max:255',
+		'logo' => 'max:500',
+		'email' =>'max:255|email',
+		'phone' => 'max:14',
+		'twitter' =>'max:255',
+		'facebook' =>'max:255',
+		'instagram' => 'max:255',
+		'streaming_url' =>'max:255',
+		'youtube' =>'max:255'
 		];
 	}
 
@@ -36,24 +36,24 @@ class RadioService extends LaravelDataService
 	{
 
 		$record = [
-		'radio_name' => $data['radio_name'],
-		'radio_slogan' => $data['radio_slogan'],
-		'radio_address' =>$data['radio_address'],
-		'radio_email' => $data['radio_email'],
-		'radio_telephone' =>$data['radio_phone'],
-		'radio_streaming_url' =>$data['radio_streaming_url'],
-		'radio_facebook' =>$data['radio_facebook'],
-		'radio_twitter' =>$data['radio_twitter'],
-		'radio_instagram' =>$data['radio_instagram'],
-		'radio_youtube' =>$data['radio_youtube']
+		'name' => $data['name'],
+		'slogan' => $data['slogan'],
+		'address' =>$data['address'],
+		'email' => $data['email'],
+		'telephone' =>$data['phone'],
+		'streaming_url' =>$data['streaming_url'],
+		'facebook' =>$data['facebook'],
+		'twitter' =>$data['twitter'],
+		'instagram' =>$data['instagram'],
+		'youtube' =>$data['youtube']
 		];
 
-		if (isset($data["radio_image"]))
+		if (isset($data["image"]))
         {
-        	$file = $data["radio_image"];
+        	$file = $data["image"];
         	if($imageUrl = $this->fileUploader->upload($file))
         	{
-				$record['radio_logo_url'] = $imageUrl;
+				$record['logo_url'] = $imageUrl;
 			}
 		}
 
